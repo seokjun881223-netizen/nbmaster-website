@@ -1,0 +1,849 @@
+@media (max-width:1100px){
+  .main-nav{gap:18px}
+  .main-nav a{font-size:14px}
+  .card-grid.four{grid-template-columns:repeat(2,1fr)}
+  .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:768px){
+  .section{padding:82px 0}
+  .section-dark{padding:82px 0}
+  .section-heading h2{font-size:32px}
+  .section-heading p{font-size:16px}
+
+  .header{height:72px}
+  .header-inner{width:92%}
+  .logo{font-size:23px}
+  .menu-toggle{display:block;margin-left:auto}
+
+  .main-nav{
+    position:fixed;top:0;right:0;width:min(86vw,360px);height:100dvh;
+    padding:105px 28px 45px;display:flex;flex-direction:column;align-items:stretch;
+    gap:0;overflow-y:auto;background:#fff;box-shadow:-18px 0 45px rgba(8,27,50,.18);
+    transform:translateX(105%);visibility:hidden;opacity:0;
+    transition:transform .35s ease,visibility .35s ease,opacity .35s ease;z-index:10001
+  }
+  .main-nav.is-open{transform:translateX(0);visibility:visible;opacity:1}
+  .main-nav a{width:100%;padding:19px 4px;border-bottom:1px solid #e9edf2;font-size:18px;text-align:left}
+  .main-nav a:first-child{border-top:1px solid #e9edf2}
+  .menu-dim{
+    position:fixed;inset:0;display:block;background:rgba(3,15,30,.48);
+    opacity:0;visibility:hidden;pointer-events:none;transition:.3s;z-index:10000
+  }
+  .menu-dim.is-visible{opacity:1;visibility:visible;pointer-events:auto}
+
+  .hero{min-height:760px;height:auto;padding:110px 0 60px;background-position:center}
+  .hero-copy{padding-top:20px}
+  .eyebrow{font-size:11px;letter-spacing:1.2px}
+  .hero h1{font-size:54px}
+  .hero-subtitle{font-size:21px}
+  .hero h2{font-size:27px}
+  .coverage{font-size:15px}
+  .promise{font-size:17px}
+  .hero-actions{flex-direction:column;max-width:330px}
+  .hero-actions .btn{width:100%}
+  .hero-points{flex-direction:column;gap:8px;font-size:14px}
+
+  .trust-strip-inner{padding:18px 0;gap:12px 18px;font-size:14px}
+  .trust-strip strong{width:100%;text-align:center}
+
+  .intro-grid{grid-template-columns:1fr;gap:35px}
+  .intro .section-heading h2{font-size:38px}
+  .intro-text p{font-size:17px}
+
+  .card-grid.four{grid-template-columns:1fr}
+  .portfolio-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr}
+  .stat{padding:30px 20px}
+  .stat strong{font-size:28px}
+
+  .partnership-grid{grid-template-columns:1fr;gap:42px}
+  .partnership h2{font-size:36px}
+  .partnership ul{grid-template-columns:1fr}
+  .partnership-panel{min-height:auto;padding:38px 28px}
+  .partnership-panel strong{font-size:30px}
+
+  .contact-grid{grid-template-columns:1fr}
+  .footer-grid{flex-direction:column;padding:55px 0}
+  .footer-info{min-width:0}
+
+  .floating-buttons{right:16px;bottom:16px}
+  .floating-button{width:52px;height:52px}
+}
+
+@media (max-width:420px){
+  .hero h1{font-size:46px}
+  .hero h2{font-size:23px}
+  .section-heading h2{font-size:29px}
+  .partnership h2{font-size:31px}
+}
+
+
+/* ==========================================
+   HERO V2 RESPONSIVE
+========================================== */
+
+@media (max-width:1100px){
+  .hero-inner{
+    grid-template-columns:minmax(0,1fr) 280px;
+    gap:38px;
+  }
+
+  .hero h1{
+    font-size:76px;
+  }
+
+  .hero h2{
+    font-size:34px;
+  }
+}
+
+@media (max-width:768px){
+  .hero{
+    min-height:820px;
+    background:
+      linear-gradient(180deg,rgba(3,17,34,.86),rgba(3,17,34,.56)),
+      url("../images/hero.jpg") center/cover no-repeat;
+  }
+
+  .hero-inner{
+    display:block;
+  }
+
+  .hero-badge{
+    min-height:38px;
+    font-size:13px;
+    padding:0 14px;
+  }
+
+  .hero h1{
+    font-size:52px;
+  }
+
+  .hero-subtitle{
+    font-size:20px;
+  }
+
+  .hero h2{
+    font-size:26px;
+  }
+
+  .promise{
+    font-size:17px;
+  }
+
+  .hero-proof{
+    grid-template-columns:1fr;
+    margin-top:28px;
+    gap:10px;
+  }
+
+  .proof-card{
+    padding:17px 18px;
+    text-align:left;
+  }
+
+  .proof-card strong{
+    font-size:18px;
+  }
+
+  .proof-card p{
+    font-size:14px;
+  }
+
+  .hero-scroll{
+    display:none;
+  }
+}
+
+@media (max-width:420px){
+  .hero h1{
+    font-size:44px;
+  }
+
+  .hero h2{
+    font-size:23px;
+  }
+
+  .hero-badge{
+    max-width:100%;
+    font-size:12px;
+  }
+}
+
+
+/* ==========================================
+   V3 MOCKUP LAYOUT RESPONSIVE
+========================================== */
+
+@media (max-width:1100px){
+  .header-cta{
+    display:none;
+  }
+
+  .hero-mockup h1{
+    font-size:70px;
+  }
+
+  .hero-mockup h2{
+    font-size:30px;
+  }
+}
+
+@media (max-width:768px){
+  .top-bar{
+    height:30px;
+  }
+
+  .top-bar-inner{
+    justify-content:center;
+    font-size:10px;
+  }
+
+  .top-bar-inner span:last-child{
+    display:none;
+  }
+
+  .header{
+    top:30px;
+    height:68px;
+  }
+
+  .hero-mockup{
+    min-height:830px;
+    padding-top:98px;
+  }
+
+  .hero-image-layer{
+    background-position:68% center;
+  }
+
+  .hero-soft-overlay{
+    background:
+      linear-gradient(180deg,
+        rgba(247,251,255,.98) 0%,
+        rgba(247,251,255,.93) 52%,
+        rgba(247,251,255,.60) 100%);
+  }
+
+  .hero-mockup-inner{
+    min-height:650px;
+    align-items:flex-start;
+  }
+
+  .hero-mockup-copy{
+    padding:75px 0 210px;
+  }
+
+  .hero-mockup h1{
+    font-size:50px;
+  }
+
+  .hero-mockup h2{
+    font-size:25px;
+  }
+
+  .hero-region{
+    font-size:13px;
+  }
+
+  .hero-promise{
+    font-size:17px;
+  }
+
+  .hero-inline-points{
+    flex-direction:column;
+    gap:7px;
+  }
+
+  .trust-cards-wrap{
+    bottom:-210px;
+  }
+
+  .trust-cards{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .trust-card{
+    min-height:auto;
+    padding:18px;
+  }
+
+  .service-band{
+    padding-top:245px;
+  }
+}
+
+@media (max-width:420px){
+  .hero-mockup{
+    min-height:850px;
+  }
+
+  .hero-mockup h1{
+    font-size:44px;
+  }
+
+  .hero-mockup h2{
+    font-size:22px;
+  }
+
+  .hero-kicker{
+    font-size:12px;
+  }
+}
+
+
+/* ==========================================
+   V4 SERVICES + PORTFOLIO RESPONSIVE
+========================================== */
+
+@media (max-width:1180px){
+  .services-compact-grid{
+    grid-template-columns:1fr;
+  }
+
+  .services-copy{
+    max-width:620px;
+  }
+
+  .services-cards-five{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .portfolio-strip-grid{
+    grid-template-columns:1fr;
+  }
+
+  .portfolio-copy{
+    max-width:600px;
+  }
+
+  .portfolio-row{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media (max-width:768px){
+  .services-compact{
+    padding:70px 0 50px;
+  }
+
+  .services-copy h2,
+  .portfolio-copy h2{
+    font-size:29px;
+  }
+
+  .services-cards-five{
+    grid-template-columns:1fr;
+  }
+
+  .mini-service-card{
+    min-height:auto;
+    padding:25px 20px;
+  }
+
+  .portfolio-strip{
+    padding:52px 0 60px;
+  }
+
+  .portfolio-row{
+    grid-template-columns:1fr;
+  }
+
+  .portfolio-wide-image{
+    height:230px;
+  }
+}
+
+
+/* ==========================================
+   V5 RESPONSIVE
+========================================== */
+
+@media (max-width:1050px){
+  .why-premium-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .footer-v5-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media (max-width:768px){
+  .why-premium{
+    padding:78px 0;
+  }
+
+  .why-premium-head{
+    display:block;
+    margin-bottom:36px;
+  }
+
+  .why-premium-head h2{
+    font-size:31px;
+  }
+
+  .why-premium-head>p{
+    margin-top:18px;
+    font-size:16px;
+  }
+
+  .why-premium-grid{
+    grid-template-columns:1fr;
+  }
+
+  .why-premium-card{
+    min-height:auto;
+  }
+
+  .footer-v5-grid{
+    grid-template-columns:1fr;
+    gap:34px;
+    padding:55px 0 48px;
+  }
+}
+
+
+/* ======================================================
+   V6.1 RESPONSIVE REFINEMENT
+====================================================== */
+
+@media (max-width:1100px){
+  .why-premium-head>p.why-summary{
+    white-space:normal;
+  }
+
+  .logo img{
+    height:52px;
+    max-width:290px;
+  }
+}
+
+@media (max-width:768px){
+  .logo img{
+    height:42px;
+    max-width:205px;
+  }
+
+  .hero-mockup{
+    min-height:740px;
+  }
+
+  .hero-mockup-inner{
+    min-height:590px;
+  }
+
+  .hero-mockup-copy{
+    padding:62px 0 175px;
+  }
+
+  .hero-mockup h1{
+    font-size:50px;
+  }
+
+  .hero-mockup h2{
+    font-size:25px;
+  }
+
+  .hero-kicker{
+    font-size:14px;
+  }
+
+  .intro-grid{
+    grid-template-columns:1fr;
+    gap:35px;
+  }
+
+  .why-premium-head>p.why-summary{
+    white-space:normal;
+  }
+
+  .footer-logo img{
+    height:50px;
+    max-width:260px;
+  }
+}
+
+@media (max-width:420px){
+  .logo img{
+    height:38px;
+    max-width:185px;
+  }
+}
+
+
+/* ======================================================
+   V6.2 RESPONSIVE SAFETY
+====================================================== */
+
+@media (max-width:1100px){
+  .intro-text p,
+  .why-premium-head h2,
+  .why-premium-head>p.why-summary{
+    white-space:normal;
+  }
+}
+
+@media (max-width:768px){
+  .top-bar-inner{
+    justify-content:center;
+    text-align:center;
+  }
+
+  .main-nav{
+    margin-left:0;
+    justify-content:flex-start;
+  }
+}
+
+
+/* ======================================================
+   V6.3 RESPONSIVE SAFETY
+====================================================== */
+
+@media (max-width:1100px){
+  .main-nav{
+    transform:none;
+  }
+
+  .intro-grid{
+    padding-left:0;
+    grid-template-columns:1fr;
+    gap:36px;
+  }
+
+  .intro .section-heading,
+  .intro-text,
+  .intro-text p{
+    text-align:left;
+  }
+
+  .why-premium-head{
+    grid-template-columns:1fr;
+    align-items:start;
+    row-gap:18px;
+  }
+
+  .why-premium-head>p.why-summary{
+    align-self:start;
+    margin:0;
+  }
+}
+
+@media (max-width:768px){
+  .top-bar .container,
+  .header .container{
+    width:92%;
+  }
+}
+
+
+/* ======================================================
+   V6.5 PORTFOLIO RESPONSIVE
+====================================================== */
+
+@media (max-width:1100px){
+  .portfolio-project-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width:768px){
+  .portfolio-page-hero{
+    padding:78px 0 52px;
+  }
+
+  .portfolio-page-hero h1{
+    font-size:40px;
+  }
+
+  .portfolio-project-section{
+    padding:48px 0 75px;
+  }
+
+  .portfolio-filter{
+    justify-content:flex-start;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    padding-bottom:8px;
+  }
+
+  .portfolio-filter button{
+    flex:0 0 auto;
+  }
+
+  .portfolio-project-grid{
+    grid-template-columns:1fr;
+  }
+
+  .portfolio-project-image{
+    height:330px;
+  }
+
+  .portfolio-contact-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .portfolio-contact-inner .btn{
+    width:100%;
+  }
+}
+
+
+/* ======================================================
+   V6.6 SERVICE DETAIL RESPONSIVE
+====================================================== */
+
+@media (max-width:1100px){
+  .service-process-grid{
+    grid-template-columns:repeat(3,minmax(0,1fr));
+  }
+}
+
+@media (max-width:768px){
+  .service-detail-hero,
+  .service-detail-hero-inner{
+    min-height:680px;
+  }
+
+  .service-detail-overlay{
+    background:
+      linear-gradient(180deg,rgba(7,24,44,.93),rgba(7,24,44,.63));
+  }
+
+  .service-detail-copy h1{
+    font-size:41px;
+  }
+
+  .service-detail-copy p{
+    font-size:16px;
+  }
+
+  .service-detail-actions{
+    flex-direction:column;
+  }
+
+  .service-detail-actions .btn{
+    width:100%;
+  }
+
+  .service-intro-grid,
+  .service-benefit-grid{
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+
+  .service-process-grid{
+    grid-template-columns:1fr;
+  }
+
+  .service-process-card{
+    min-height:auto;
+  }
+
+  .service-photo-grid{
+    grid-template-columns:1fr;
+  }
+
+  .service-photo-card img{
+    height:420px;
+  }
+
+  .service-benefit-cards{
+    grid-template-columns:1fr;
+  }
+
+  .service-final-cta-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .service-final-cta .btn{
+    width:100%;
+  }
+}
+
+
+/* ======================================================
+   V6.7 POSTS RESPONSIVE
+====================================================== */
+
+@media (max-width:768px){
+  .service-photo-media{
+    height:420px;
+  }
+
+  .project-post-head{
+    padding:72px 0 44px;
+  }
+
+  .project-post-head h1{
+    font-size:36px;
+  }
+
+  .project-post-grid{
+    grid-template-columns:1fr;
+  }
+
+  .project-post-info{
+    position:static;
+  }
+}
+
+
+/* ======================================================
+   V6.8 RESPONSIVE POST HEADER SPACING
+====================================================== */
+
+@media (max-width:768px){
+  .project-post-page{
+    padding-top:76px;
+  }
+
+  .project-post-head{
+    padding-top:54px;
+  }
+}
+
+
+/* ======================================================
+   V6.9 SLIDER RESPONSIVE
+====================================================== */
+
+@media (max-width:768px){
+  .project-slider-stage{
+    min-height:460px;
+  }
+
+  .project-slide img{
+    height:460px;
+  }
+
+  .project-slider-button{
+    width:42px;
+    height:42px;
+    font-size:29px;
+  }
+
+  .project-slider-prev{
+    left:10px;
+  }
+
+  .project-slider-next{
+    right:10px;
+  }
+
+  .project-thumb{
+    flex-basis:78px;
+    height:62px;
+  }
+}
+
+
+/* ======================================================
+   V7.0 ABOUT RESPONSIVE
+====================================================== */
+
+@media (max-width:1100px){
+  .about-value-grid,
+  .about-service-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .about-partner-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .about-partner-grid .btn{
+    grid-column:1/-1;
+    width:max-content;
+  }
+}
+
+@media (max-width:768px){
+  .about-page-hero,
+  .about-page-hero-inner{
+    min-height:660px;
+  }
+
+  .about-page-overlay{
+    background:linear-gradient(180deg,rgba(7,24,44,.93),rgba(7,24,44,.60));
+  }
+
+  .about-page-copy h1{
+    font-size:41px;
+  }
+
+  .about-message-grid,
+  .about-area-grid,
+  .about-partner-grid{
+    grid-template-columns:1fr;
+    gap:34px;
+  }
+
+  .about-value-grid,
+  .about-service-grid{
+    grid-template-columns:1fr;
+  }
+
+  .about-area-panel{
+    grid-template-columns:1fr;
+  }
+
+  .about-partner-grid .btn{
+    grid-column:auto;
+    width:100%;
+  }
+
+  .about-final-cta-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .about-final-cta .btn{
+    width:100%;
+  }
+}
+
+
+/* ======================================================
+   V7.1 CONTACT RESPONSIVE
+====================================================== */
+
+@media (max-width:768px){
+  .contact-page-hero{
+    padding:76px 0 55px;
+  }
+
+  .contact-page-hero h1{
+    font-size:40px;
+  }
+
+  .contact-channel-grid,
+  .contact-info-grid,
+  .contact-form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .contact-checklist,
+  .contact-form-row{
+    grid-template-columns:1fr;
+  }
+
+  .contact-form{
+    padding:24px 18px;
+  }
+
+  .contact-final-band-inner{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .contact-final-band .btn{
+    width:100%;
+  }
+}
+@media(max-width:768px){.admin-summary-grid{grid-template-columns:repeat(2,1fr)}.admin-dashboard-head{flex-direction:column;align-items:flex-start;gap:20px}.admin-login-card{padding:32px 22px}.admin-header img{width:140px}}

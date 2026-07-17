@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>고객센터 | 난방 마스터</title>
+  <meta name="description" content="난방 마스터 시공 상담, 견적 문의, 인테리어 업체 협력 문의">
+  <link rel="canonical" href="">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="고객센터 | 난방 마스터">
+  <meta property="og:description" content="난방 마스터 시공 상담, 견적 문의, 인테리어 업체 협력 문의">
+  <meta property="og:image" content="images/hero-wide-floor.jpg">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/animation.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo" aria-label="난방 마스터 홈">
+      <img src="images/logo.png" alt="난방 마스터">
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="about.html">회사소개</a>
+      <a href="excavation.html">홈파기시공</a>
+      <a href="heating.html">난방시공</a>
+      <a href="plumbing.html">수도설비시공</a>
+      <a href="leak.html">누수탐지</a>
+      <a href="portfolio.html">시공사례</a>
+      <a href="contact.html" aria-current="page">고객센터</a>
+    </nav>
+    <div class="menu-dim"></div>
+  </div>
+</header>
+
+<main class="contact-page">
+
+  <section class="contact-page-hero">
+    <div class="container">
+      <span class="section-kicker">CONTACT</span>
+      <h1>빠르고 편리하게<br>상담받으세요.</h1>
+      <p>현장 사진과 필요한 시공 내용을 알려주시면 확인 후 안내해드립니다.</p>
+    </div>
+  </section>
+
+  <section class="section contact-channel-section">
+    <div class="container">
+      <div class="section-heading centered reveal">
+        <span class="section-kicker">QUICK CONTACT</span>
+        <h2>편한 방법으로 문의해주세요.</h2>
+        
+      </div>
+
+      <div class="contact-channel-grid">
+        <a class="contact-channel-card reveal mobile-call-link" href="tel:01023550943" data-mobile-call aria-label="전화 상담">
+          <span class="contact-channel-icon">☎</span>
+          <h3>전화 상담</h3>
+          <p>현장 상담 및 견적 문의</p>
+          <strong>010-2355-0943</strong>
+        </a>
+
+        <a class="contact-channel-card reveal mobile-sms-link" href="sms:01023550943" data-mobile-sms aria-label="문자 상담">
+          <span class="contact-channel-icon">✉</span>
+          <h3>문자 상담</h3>
+          <p>사진과 주소를 함께 보내주세요.</p>
+          <strong>문자 보내기</strong>
+        </a>
+
+        <a class="contact-channel-card reveal" href="http://pf.kakao.com/_mEdvn/chat" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 상담">
+          <span class="contact-channel-icon kakao">K</span>
+          <h3>카카오톡 상담</h3>
+          <p>카카오톡 채팅으로 빠르게 문의하세요.</p>
+          <strong>채팅 시작하기</strong>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container contact-info-grid">
+      <div class="section-heading reveal">
+        <span class="section-kicker">INFORMATION</span>
+        <h2>상담 안내</h2>
+        <p>정확한 상담을 위해 아래 정보를 함께 보내주시면 좋습니다.</p>
+      </div>
+
+      <div class="contact-checklist reveal">
+        <div><span>01</span><p>현장 지역과 건물 유형</p></div>
+        <div><span>02</span><p>필요한 시공 종류</p></div>
+        <div><span>03</span><p>현재 현장 상태 사진</p></div>
+        <div><span>04</span><p>희망 일정과 연락 가능한 시간</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact-form-section">
+    <div class="container contact-form-grid">
+      <div class="contact-form-copy reveal">
+        <span class="section-kicker">ONLINE INQUIRY</span>
+        <h2>온라인 문의</h2>
+        <p>
+         <br><br><br><br>
+        </p>
+        <div class="contact-hours">
+          <strong>상담 가능 시간</strong>
+          <span>평일 09:00 - 18:00</span>
+          <span>토요일 09:00 - 13:00</span>
+          <span>일요일·공휴일 휴무</span>
+        </div>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm" data-inquiry-form>
+        <div class="contact-form-row">
+          <label>
+            성함
+            <input type="text" name="name" placeholder="성함을 입력해주세요." required>
+          </label>
+          <label>
+            연락처
+            <input type="tel" name="phone" placeholder="010-2355-0943" required>
+          </label>
+        </div>
+
+        <label>
+          시공 분류
+          <select name="category" required>
+            <option value="">선택해주세요.</option>
+            <option>홈파기시공</option>
+            <option>난방시공</option>
+            <option>수도설비시공</option>
+            <option>누수탐지</option>
+            <option>인테리어 업체 협력</option>
+            <option>기타 문의</option>
+          </select>
+        </label>
+
+        <label>
+          현장 지역
+          <input type="text" name="location" placeholder="예: 서울시 강서구">
+        </label>
+
+        <label>
+          문의 내용
+          <textarea name="message" rows="7" placeholder="현장 상태와 필요한 시공 내용을 입력해주세요." required></textarea>
+        </label>
+
+        <label class="contact-honeypot" aria-hidden="true">웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label><label class="contact-consent">
+          <input type="checkbox" required>
+          <span>상담을 위한 개인정보 수집 및 이용에 동의합니다.</span>
+        </label>
+
+        <button class="btn btn-primary" type="submit">문의 접수하기</button>
+        <p class="contact-form-notice" id="contactFormNotice">
+          모든 항목을 입력하면 비공개 문의로 접수되며 관리자만 확인할 수 있습니다.
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container">
+      <div class="section-heading centered reveal">
+        <span class="section-kicker">FAQ</span>
+        <h2>상담 전 자주 묻는 질문</h2>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item reveal">
+          <summary>사진만 보내도 대략적인 상담이 가능한가요?</summary>
+          <p>현장 전체와 문제 구간 사진, 지역과 필요한 시공 내용을 보내주시면 1차 상담에 도움이 됩니다.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>당일 시공이 가능한가요?</summary>
+          <p>현장 위치, 공정 범위, 기존 일정에 따라 달라지므로 상담 후 가능한 일정을 안내합니다.</p>
+        </details>
+        <details class="faq-item reveal">
+          <summary>인테리어 업체 협력 문의도 가능한가요?</summary>
+          <p>가능합니다. 현장 일정, 공정 범위, 협력 방식과 견적 조건을 확인해 안내합니다.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-final-band">
+    <div class="container contact-final-band-inner">
+      <div>
+        <span class="section-kicker light">SERVICE AREA</span>
+        <h2>서울 · 인천 · 경기 전지역 시공</h2>
+        <p>현장 위치와 일정에 따라 방문 상담 및 시공 일정을 조율합니다.</p>
+      </div>
+      <a class="btn btn-light mobile-call-link" href="tel:01023550943" data-mobile-call>전화 상담</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer footer-v5">
+  <div class="container footer-v5-grid">
+    <div class="footer-v5-brand">
+      <a href="index.html" class="footer-logo" aria-label="난방마스터 홈">
+        <img src="images/logo.png" alt="난방마스터">
+      </a>
+      <p>
+        난방 · 수도설비 전문시공<br>
+        홈파기 · 분배기 · 누수탐지 전문
+      </p>
+      <strong>서울 · 인천 · 경기 전지역 시공</strong>
+    </div>
+
+    <div class="footer-v5-links">
+      <h3>서비스</h3>
+      <a href="excavation.html">홈파기시공</a>
+      <a href="heating.html">난방시공</a>
+      <a href="plumbing.html">수도설비시공</a>
+      <a href="leak.html">누수탐지</a>
+    </div>
+
+    <div class="footer-v5-contact">
+      <h3>상담 안내</h3>
+      <a href="tel:01023550943">010-2355-0943</a>
+      <a href="http://pf.kakao.com/_mEdvn/chat" target="_blank" rel="noopener noreferrer">카카오톡 상담</a>
+      <a href="contact.html">온라인 문의</a>
+    </div>
+
+    <div class="footer-v5-info">
+      <h3>사업자 정보</h3>
+      <p>대표자: 추후 입력</p>
+      <p>사업자등록번호: 추후 입력</p>
+      <p>주소: 추후 입력</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    Copyright © 난방 마스터. All rights reserved.
+  </div>
+</footer>
+
+<div class="floating-buttons">
+  <a class="floating-button phone-button" href="tel:01023550943" aria-label="전화 상담">☎</a>
+  <a class="floating-button kakao-button" href="http://pf.kakao.com/_mEdvn/chat" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 상담">K</a>
+</div>
+
+
+
+
+
+<script src="js/main.js"></script>
+<script src="js/contact-actions.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/inquiry-board.js"></script>
+
+
+
+
+</body>
+</html>

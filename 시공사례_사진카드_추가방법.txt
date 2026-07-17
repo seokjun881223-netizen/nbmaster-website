@@ -1,0 +1,43 @@
+시공사례 카드와 게시글 사진 추가 방법
+
+네, 사진 카드의 개수와 게시글 안의 사진 수를 직접 늘릴 수 있습니다.
+
+1. 새 사진 저장
+- images/portfolio 폴더 안에 사진을 넣습니다.
+- 파일명은 영문 소문자와 숫자를 권장합니다.
+  예: excavation-03.jpg, heating-site-01.jpg
+
+2. 기존 게시글 슬라이드에 사진 추가
+- 수정할 post-*.html 파일을 엽니다.
+- project-slider 안에서 아래 형식의 slide와 thumb를 각각 하나씩 복사합니다.
+
+슬라이드:
+<div class="project-slide" data-slide="2">
+  <img src="images/portfolio/새사진.jpg" alt="사진 설명">
+</div>
+
+썸네일:
+<button class="project-thumb" type="button" data-slide-to="2" aria-label="3번째 사진 보기">
+  <img src="images/portfolio/새사진.jpg" alt="">
+</button>
+
+- data-slide와 data-slide-to 숫자는 0부터 순서대로 맞춥니다.
+- 카운터의 전체 숫자도 바꿉니다.
+  예: <span class="project-slider-counter"><b>1</b> / 3</span>
+
+3. 시공사례 카드 추가
+- portfolio.html을 엽니다.
+- portfolio-project-grid 안의 기존 article 카드 하나를 복사합니다.
+- data-category를 아래 중 하나로 지정합니다.
+  excavation / heating / plumbing / leak
+- 링크, 사진 경로, 제목, 설명을 새 게시글에 맞게 바꿉니다.
+
+4. 새 게시글 만들기
+- 비슷한 카테고리의 post-*.html 파일을 복사합니다.
+- 파일명을 새 이름으로 변경합니다.
+- 제목, 설명, 사진 슬라이드, 시공 개요를 수정합니다.
+- portfolio.html 카드의 href를 새 게시글 파일명으로 연결합니다.
+
+주의
+- HTML에 사진만 추가해도 슬라이더는 자동으로 작동합니다.
+- 파일명 오타나 경로 오류가 있으면 사진이 표시되지 않습니다.

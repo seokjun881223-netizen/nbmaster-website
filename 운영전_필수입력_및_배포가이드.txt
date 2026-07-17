@@ -1,0 +1,52 @@
+난방 마스터 최종 운영 전 필수 입력 사항
+
+1. 실제 연락처
+- 프로젝트 전체에서 010-2355-0943을 실제 대표번호로 변경
+- tel:01023550943과 sms:01023550943도 함께 변경
+
+2. 카카오톡
+- 카카오톡 채팅 링크 연결 완료: http://pf.kakao.com/_mEdvn/chat
+- 고객센터 카카오톡 상담 카드 연결 완료
+- 메인페이지 우측 하단 K 버튼 연결 완료
+
+3. 회사 정보
+- 대표자명
+- 사업자등록번호
+- 사업장 주소
+- 실제 상담 운영시간
+- 이메일(사용하는 경우)
+
+4. 온라인 문의폼
+온라인 문의폼은 nbmaster1223@naver.com로 메일 작성창이 열리도록 연결되어 있습니다.
+연결 방법:
+- Formspree
+- Google Apps Script
+- 별도 서버/API
+중 하나를 선택해야 합니다.
+
+5. 도메인
+robots.txt와 sitemap.xml의 YOUR-DOMAIN.com을 실제 도메인으로 변경
+각 페이지 canonical 주소와 LocalBusiness schema의 url도 실제 주소 입력
+
+6. 네이버 검색 등록
+- 네이버 서치어드바이저 사이트 소유 확인
+- sitemap.xml 제출
+- robots.txt 수집 확인
+- 대표 페이지 수집 요청
+
+7. 네이버 파워링크
+각 광고 키워드에 맞는 상세 페이지를 랜딩 URL로 연결
+- 홈파기 광고 → excavation.html
+- 난방 광고 → heating.html
+- 수도설비 광고 → plumbing.html
+- 누수 광고 → leak.html
+
+8. GitHub Pages 배포
+- GitHub 새 저장소 생성
+- 프로젝트 폴더 안의 파일 전체 업로드
+- Settings → Pages → Deploy from a branch
+- main / root 선택
+- 배포 주소 확인
+
+주의
+실제 전화번호, 사업자 정보, 도메인이 없어서 이번 파일에는 임시값이 남아 있습니다.
