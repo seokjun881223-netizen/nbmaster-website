@@ -3029,3 +3029,18 @@ body.menu-open{overflow:hidden}
     padding:10px 9px 11px;
   }
 }
+
+
+/* ======================================================
+   V9.1 GLOBAL NAVY SERVICE TOP BAR
+====================================================== */
+.global-service-topbar{
+  width:100%;
+  position:relative;
+  z-index:1001;
+}
+
+.global-service-topbar + .site-header,
+.global-service-topbar + header{
+  top:0;
+}
