@@ -2962,3 +2962,31 @@ body.menu-open{overflow:hidden}
     font-size:12px;
   }
 }
+
+
+/* ======================================================
+   V8.9 LANDSCAPE CATEGORY CARDS
+   기존 520px 고정 높이를 해제하고 가로형 비율을 강제합니다.
+====================================================== */
+.category-project-board .service-photo-media{
+  width:100%;
+  height:auto !important;
+  aspect-ratio:16 / 9;
+}
+
+.category-project-board .service-photo-media img,
+.category-project-board .service-photo-card img{
+  width:100%;
+  height:100% !important;
+  object-fit:cover;
+}
+
+.category-project-board .service-photo-card{
+  align-self:start;
+}
+
+@media (max-width:640px){
+  .category-project-board .service-photo-media{
+    aspect-ratio:16 / 10;
+  }
+}
