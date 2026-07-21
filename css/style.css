@@ -2760,3 +2760,16 @@ body.menu-open{overflow:hidden}
     min-height:260px;
   }
 }
+
+
+/* ======================================================
+   V8.3 FOOTER BUSINESS INFORMATION
+====================================================== */
+.footer-v5-info address{
+  margin:0;
+  font-style:normal;
+}
+.footer-v5-info address p{
+  margin:0 0 8px;
+  line-height:1.7;
+}
