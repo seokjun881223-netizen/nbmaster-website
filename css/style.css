@@ -3087,3 +3087,87 @@ body.menu-open{overflow:hidden}
 .cms-index-portfolio > [data-cms-projects]{
   display:contents;
 }
+
+
+/* ======================================================
+   V9.5 UNIVERSAL SUBPAGE HERO
+   사진을 교체해도 좌측 텍스트 가독성과 우측 사진 노출을 유지합니다.
+====================================================== */
+.sub-visual-hero{
+  position:relative;
+  min-height:430px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  isolation:isolate;
+  padding:0 !important;
+  background-image:var(--sub-hero-image);
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:right center;
+}
+
+.sub-visual-hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(247,249,252,.99) 0%,
+      rgba(247,249,252,.97) 24%,
+      rgba(247,249,252,.88) 43%,
+      rgba(247,249,252,.60) 59%,
+      rgba(247,249,252,.20) 77%,
+      rgba(247,249,252,.03) 100%
+    );
+}
+
+.sub-visual-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.03),
+      rgba(13,39,72,.04)
+    );
+}
+
+.sub-visual-hero > .container{
+  position:relative;
+  z-index:2;
+  width:100%;
+}
+
+.sub-visual-hero h1,
+.sub-visual-hero p,
+.sub-visual-hero .section-kicker{
+  position:relative;
+  z-index:2;
+}
+
+.sub-visual-hero p{
+  max-width:560px;
+}
+
+/* 서비스 카테고리 Hero도 사진이 더 선명하게 보이도록 공통 보정 */
+.service-detail-hero{
+  background-position:center center !important;
+  background-size:cover !important;
+}
+
+.service-detail-overlay{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7,24,44,.94) 0%,
+      rgba(7,24,44,.82) 36%,
+      rgba(7,24,44,.48) 58%,
+      rgba(7,24,44,.14) 82%,
+      rgba(7,24,44,.04) 100%
+    ) !important;
+}

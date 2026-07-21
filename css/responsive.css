@@ -849,3 +849,93 @@
   }
 }
 @media(max-width:768px){.admin-summary-grid{grid-template-columns:repeat(2,1fr)}.admin-dashboard-head{flex-direction:column;align-items:flex-start;gap:20px}.admin-login-card{padding:32px 22px}.admin-header img{width:140px}}
+
+/* ======================================================
+   V9.5 MOBILE HERO OPTIMIZATION
+====================================================== */
+@media (max-width:768px){
+  .sub-visual-hero{
+    min-height:330px;
+    background-position:72% center;
+  }
+
+  .sub-visual-hero::before{
+    background:
+      linear-gradient(
+        90deg,
+        rgba(247,249,252,.98) 0%,
+        rgba(247,249,252,.95) 35%,
+        rgba(247,249,252,.79) 55%,
+        rgba(247,249,252,.40) 76%,
+        rgba(247,249,252,.08) 100%
+      );
+  }
+
+  .sub-visual-hero > .container{
+    padding-top:50px;
+    padding-bottom:50px;
+  }
+
+  .sub-visual-hero h1{
+    max-width:72%;
+    font-size:36px !important;
+  }
+
+  .sub-visual-hero p{
+    max-width:68%;
+    font-size:15px !important;
+    line-height:1.65;
+  }
+
+  /* 카테고리별 현장 사진이 모바일에서도 지나치게 가려지지 않도록 */
+  .service-detail-hero,
+  .service-detail-hero-inner{
+    min-height:540px;
+  }
+
+  .service-detail-hero{
+    background-position:center center !important;
+  }
+
+  .service-detail-overlay{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(7,24,44,.90) 0%,
+        rgba(7,24,44,.72) 43%,
+        rgba(7,24,44,.35) 72%,
+        rgba(7,24,44,.14) 100%
+      ) !important;
+  }
+
+  .service-detail-copy{
+    align-self:flex-start;
+    padding-top:100px;
+  }
+}
+
+@media (max-width:480px){
+  .sub-visual-hero{
+    min-height:300px;
+    background-position:76% center;
+  }
+
+  .sub-visual-hero h1{
+    max-width:78%;
+    font-size:31px !important;
+  }
+
+  .sub-visual-hero p{
+    max-width:74%;
+    font-size:14px !important;
+  }
+
+  .service-detail-hero,
+  .service-detail-hero-inner{
+    min-height:500px;
+  }
+
+  .service-detail-copy{
+    padding-top:82px;
+  }
+}
