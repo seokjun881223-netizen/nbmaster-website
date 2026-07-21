@@ -2796,18 +2796,61 @@ body.menu-open{overflow:hidden}
    V8.6 CATEGORY BOARD: 4 COLUMNS + PAGINATION
 ====================================================== */
 .category-project-board{
+  display:grid;
+  grid-template-columns:repeat(4, minmax(0, 1fr));
+  gap:20px;
   scroll-margin-top:120px;
 }
 
-.category-project-board .service-photo-grid{
-  display:grid;
-  grid-template-columns:repeat(4, minmax(0, 1fr));
-  gap:22px;
-  margin-top:0;
-}
-
+.category-project-board .service-photo-grid,
 .category-project-board .cms-service-grid{
   display:contents;
+}
+
+.category-project-board .service-photo-card{
+  min-width:0;
+  border-radius:16px;
+}
+
+.category-project-board .service-photo-media{
+  aspect-ratio:16 / 10;
+  overflow:hidden;
+  background:#eef2f6;
+}
+
+.category-project-board .service-photo-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.category-project-board .service-photo-caption{
+  min-height:132px;
+  padding:17px 18px 18px;
+}
+
+.category-project-board .service-photo-caption strong{
+  display:block;
+  font-size:17px;
+  line-height:1.4;
+  margin-bottom:7px;
+}
+
+.category-project-board .service-photo-caption span{
+  display:-webkit-box;
+  overflow:hidden;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+  min-height:42px;
+  font-size:13px;
+  line-height:1.6;
+}
+
+.category-project-board .service-photo-caption em{
+  display:block;
+  margin-top:11px;
+  font-size:12px;
 }
 
 .category-project-board .service-photo-card[hidden]{
@@ -2859,25 +2902,63 @@ body.menu-open{overflow:hidden}
 }
 
 @media (max-width:1100px){
-  .category-project-board .service-photo-grid{
+  .category-project-board{
     grid-template-columns:repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width:640px){
-  .category-project-board .service-photo-grid{
-    grid-template-columns:1fr;
-    gap:18px;
+  .category-project-board{
+    grid-template-columns:repeat(3, minmax(0, 1fr));
+    gap:8px;
+  }
+
+  .category-project-board .service-photo-card{
+    border-radius:10px;
+  }
+
+  .category-project-board .service-photo-media{
+    aspect-ratio:4 / 3;
+  }
+
+  .category-project-board .service-photo-caption{
+    min-height:104px;
+    padding:10px 9px 11px;
+  }
+
+  .category-project-board .service-photo-caption strong{
+    display:-webkit-box;
+    overflow:hidden;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    min-height:34px;
+    margin-bottom:4px;
+    font-size:12px;
+    line-height:1.4;
+  }
+
+  .category-project-board .service-photo-caption span{
+    -webkit-line-clamp:2;
+    min-height:30px;
+    font-size:10px;
+    line-height:1.5;
+  }
+
+  .category-project-board .service-photo-caption em{
+    margin-top:6px;
+    font-size:9px;
   }
 
   .category-pagination{
-    gap:6px;
-    margin-top:28px;
+    gap:5px;
+    margin-top:24px;
   }
 
   .category-pagination-button{
-    min-width:38px;
-    height:38px;
-    padding:0 10px;
+    min-width:34px;
+    height:34px;
+    padding:0 8px;
+    border-radius:7px;
+    font-size:12px;
   }
 }
