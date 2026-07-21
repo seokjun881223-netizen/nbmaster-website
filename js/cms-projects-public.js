@@ -65,6 +65,25 @@
       </article>`;
   };
 
+
+  const indexCard = (project) => {
+    const label = CATEGORY_LABELS[project.category] || "시공사례";
+    return `
+      <a class="portfolio-wide-card reveal is-visible"
+         href="project-detail.html?id=${encodeURIComponent(project.id)}">
+        <div class="portfolio-wide-image">
+          <img src="${escapeHtml(getCover(project))}"
+               alt="${escapeHtml(project.title)}"
+               loading="lazy">
+        </div>
+        <div class="portfolio-wide-info">
+          <span>${escapeHtml(label)}</span>
+          <h3>${escapeHtml(project.title)}</h3>
+          <p>${escapeHtml(project.summary)}</p>
+        </div>
+      </a>`;
+  };
+
   const loadProjects = async () => {
     const containers = [...document.querySelectorAll("[data-cms-projects]")];
     if (!containers.length) return;
@@ -82,13 +101,21 @@
       containers.forEach((container) => {
         const category = container.dataset.cmsCategory || "all";
         const variant = container.dataset.cmsVariant || "service";
-        const projects = (data || []).filter(
+        const limit = Number(container.dataset.cmsLimit || 0);
+        let projects = (data || []).filter(
           (project) => category === "all" || project.category === category
         );
 
-        container.innerHTML = projects.map(
-          variant === "portfolio" ? portfolioCard : serviceCard
-        ).join("");
+        if (limit > 0) {
+          projects = projects.slice(0, limit);
+        }
+
+        const renderer =
+          variant === "portfolio" ? portfolioCard :
+          variant === "index" ? indexCard :
+          serviceCard;
+
+        container.innerHTML = projects.map(renderer).join("");
 
         if (!projects.length && container.dataset.showEmpty === "true") {
           container.innerHTML = '<p class="cms-empty">등록된 새 시공사례가 없습니다.</p>';

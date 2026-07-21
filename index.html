@@ -14,7 +14,7 @@
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=92">
   <link rel="stylesheet" href="css/responsive.css">
   <link rel="stylesheet" href="css/animation.css">
   <script type="application/ld+json">
@@ -248,52 +248,11 @@
         </a>
       </div>
 
-      <div class="portfolio-row">
-
-        <a class="portfolio-wide-card reveal" href="portfolio.html">
-          <div class="portfolio-wide-image">
-            <img src="images/portfolio/excavation-01.jpg" alt="실내 바닥 홈파기 시공" loading="lazy">
-          </div>
-          <div class="portfolio-wide-info">
-            <span>홈파기시공</span>
-            <h3>실내 바닥 홈파기 시공</h3>
-            <p>배관 매립을 위한 바닥 홈파기 작업</p>
-          </div>
-        </a>
-
-        <a class="portfolio-wide-card reveal" href="portfolio.html">
-          <div class="portfolio-wide-image">
-            <img src="images/portfolio/heating-01.jpg" alt="바닥 난방배관 시공" loading="lazy">
-          </div>
-          <div class="portfolio-wide-info">
-            <span>난방시공</span>
-            <h3>바닥 난방배관 시공</h3>
-            <p>단열재 위 난방배관 배치 및 고정</p>
-          </div>
-        </a>
-
-        <a class="portfolio-wide-card reveal" href="portfolio.html">
-          <div class="portfolio-wide-image">
-            <img src="images/portfolio/plumbing-02.jpg" alt="바닥 수도배관 홈파기" loading="lazy">
-          </div>
-          <div class="portfolio-wide-info">
-            <span>수도설비시공</span>
-            <h3>바닥 수도배관 홈파기</h3>
-            <p>벽체와 바닥을 연결하는 배관 통로 시공</p>
-          </div>
-        </a>
-
-        <a class="portfolio-wide-card reveal" href="portfolio.html">
-          <div class="portfolio-wide-image">
-            <img src="images/portfolio/leak-02.jpg" alt="분배기 교체 후 누수 점검" loading="lazy">
-          </div>
-          <div class="portfolio-wide-info">
-            <span>누수탐지</span>
-            <h3>분배기 교체 후 누수 점검</h3>
-            <p>신규 분배기 설치 후 연결부 확인</p>
-          </div>
-        </a>
-
+      <div class="portfolio-row cms-index-portfolio">
+        <div data-cms-projects data-cms-category="excavation" data-cms-variant="index" data-cms-limit="1"></div>
+        <div data-cms-projects data-cms-category="heating" data-cms-variant="index" data-cms-limit="1"></div>
+        <div data-cms-projects data-cms-category="plumbing" data-cms-variant="index" data-cms-limit="1"></div>
+        <div data-cms-projects data-cms-category="leak" data-cms-variant="index" data-cms-limit="1"></div>
       </div>
     </div>
   </div>
@@ -399,7 +358,10 @@
   <a class="floating-button kakao-button" href="http://pf.kakao.com/_mEdvn/chat" target="_blank" rel="noopener noreferrer" aria-label="카카오톡 상담">K</a>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
 <script src="js/main.js"></script>
+<script src="js/cms-projects-public.js"></script>
 <script src="js/contact-actions.js"></script>
 </body>
 </html>

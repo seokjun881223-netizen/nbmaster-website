@@ -269,7 +269,7 @@
     if (!selectedIds.length) return;
 
     const selected = existingImages.filter((image) => selectedIds.includes(Number(image.id)));
-    const paths = selected.map((image) => image.storage_path).filter(Boolean);
+    const paths = selected.map((image) => image.storage_path).filter((path) => path && !path.startsWith("legacy:"));
     if (paths.length) {
       const { error: storageError } = await window.nbSupabase.storage.from(BUCKET).remove(paths);
       if (storageError) throw storageError;
@@ -349,7 +349,7 @@
     if (!confirm(`"${project.title}" 게시글을 삭제할까요?\n사진도 함께 삭제됩니다.`)) return;
 
     try {
-      const paths = (project.project_images || []).map((image) => image.storage_path).filter(Boolean);
+      const paths = (project.project_images || []).map((image) => image.storage_path).filter((path) => path && !path.startsWith("legacy:"));
       if (paths.length) {
         const { error: storageError } = await window.nbSupabase.storage.from(BUCKET).remove(paths);
         if (storageError) throw storageError;
