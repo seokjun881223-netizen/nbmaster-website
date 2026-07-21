@@ -2564,18 +2564,26 @@ body.menu-open{overflow:hidden}
 }
 .admin-header-actions a,
 .admin-header-actions button{
-  border:1px solid rgba(255,255,255,.28);
-  background:transparent;
-  color:#fff;
+  border:1px solid #cbd5e1;
+  background:#fff;
+  color:#153a6b;
   border-radius:8px;
   padding:9px 13px;
   font:inherit;
+  font-weight:700;
   text-decoration:none;
   cursor:pointer;
+  white-space:nowrap;
+}
+.admin-header-actions a:hover,
+.admin-header-actions button:hover{
+  background:#eef5ff;
+  border-color:#7aa7df;
 }
 .admin-header-actions a.is-active{
-  background:#fff;
-  color:#153a6b;
+  background:#1769e8;
+  border-color:#1769e8;
+  color:#fff;
 }
 
 .admin-project-dashboard{
