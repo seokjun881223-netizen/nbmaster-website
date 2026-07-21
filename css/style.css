@@ -2965,28 +2965,67 @@ body.menu-open{overflow:hidden}
 
 
 /* ======================================================
-   V8.9 LANDSCAPE CATEGORY CARDS
-   기존 520px 고정 높이를 해제하고 가로형 비율을 강제합니다.
+   V9.0 TRUE LANDSCAPE CATEGORY CARDS
 ====================================================== */
-.category-project-board .service-photo-media{
+.category-project-board{
+  display:grid !important;
+  grid-template-columns:repeat(4, minmax(0, 1fr)) !important;
+  gap:20px !important;
   width:100%;
-  height:auto !important;
-  aspect-ratio:16 / 9;
 }
 
-.category-project-board .service-photo-media img,
-.category-project-board .service-photo-card img{
-  width:100%;
-  height:100% !important;
-  object-fit:cover;
+.category-project-board > .service-photo-grid,
+.category-project-board > .cms-service-grid{
+  display:contents !important;
 }
 
 .category-project-board .service-photo-card{
+  width:100% !important;
+  min-width:0 !important;
   align-self:start;
 }
 
+.category-project-board .service-photo-media{
+  position:relative;
+  width:100%;
+  height:0 !important;
+  padding-top:56.25%; /* 16:9 가로형 */
+  overflow:hidden;
+  background:#eef2f6;
+}
+
+.category-project-board .service-photo-media > img{
+  position:absolute;
+  inset:0;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  display:block;
+}
+
+.category-project-board .service-photo-caption{
+  min-height:124px;
+  padding:16px 17px 17px;
+}
+
+@media (max-width:1100px){
+  .category-project-board{
+    grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
 @media (max-width:640px){
+  .category-project-board{
+    grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
+    gap:8px !important;
+  }
+
   .category-project-board .service-photo-media{
-    aspect-ratio:16 / 10;
+    padding-top:62.5%; /* 모바일 16:10 */
+  }
+
+  .category-project-board .service-photo-caption{
+    min-height:104px;
+    padding:10px 9px 11px;
   }
 }
