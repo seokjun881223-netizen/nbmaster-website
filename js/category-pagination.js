@@ -1,17 +1,30 @@
 (() => {
-  const ITEMS_PER_PAGE = 12;
+  const getLayout = () => {
+    if (window.matchMedia("(max-width: 640px)").matches) {
+      return { columns: 3, rows: 3, itemsPerPage: 9 };
+    }
+
+    if (window.matchMedia("(max-width: 1100px)").matches) {
+      return { columns: 2, rows: 3, itemsPerPage: 6 };
+    }
+
+    return { columns: 4, rows: 3, itemsPerPage: 12 };
+  };
 
   const getCards = (root) =>
     [...root.querySelectorAll(".service-photo-card")];
 
   const buildPagination = (root, pagination, requestedPage = 1) => {
     const cards = getCards(root);
-    const totalPages = Math.max(1, Math.ceil(cards.length / ITEMS_PER_PAGE));
+    const { itemsPerPage } = getLayout();
+    const totalPages = Math.max(1, Math.ceil(cards.length / itemsPerPage));
     const currentPage = Math.min(Math.max(1, requestedPage), totalPages);
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+
+    root.dataset.currentPage = String(currentPage);
 
     cards.forEach((card, index) => {
-      const start = (currentPage - 1) * ITEMS_PER_PAGE;
-      const end = start + ITEMS_PER_PAGE;
       card.hidden = !(index >= start && index < end);
     });
 
@@ -66,12 +79,18 @@
       );
       if (!pagination) return;
 
-      buildPagination(root, pagination, 1);
+      const currentPage = Number(root.dataset.currentPage || 1);
+      buildPagination(root, pagination, currentPage);
     });
   };
 
-  document.addEventListener("DOMContentLoaded", initialize);
+  let resizeTimer;
 
-  // Supabase 게시글이 동적으로 추가된 뒤 다시 계산
+  document.addEventListener("DOMContentLoaded", initialize);
   document.addEventListener("nbmaster:cms-loaded", initialize);
+
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(initialize, 150);
+  });
 })();

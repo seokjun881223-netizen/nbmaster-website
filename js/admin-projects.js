@@ -21,6 +21,86 @@
   const safeFileName = (name) =>
     name.normalize("NFKD").replace(/[^\w.-]+/g, "-").replace(/-+/g, "-");
 
+
+  const loadImageSource = async (file) => {
+    if ("createImageBitmap" in window) {
+      return createImageBitmap(file, { imageOrientation: "from-image" });
+    }
+
+    return new Promise((resolve, reject) => {
+      const image = new Image();
+      const url = URL.createObjectURL(file);
+
+      image.onload = () => {
+        URL.revokeObjectURL(url);
+        resolve(image);
+      };
+
+      image.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error(`${file.name} 이미지를 읽지 못했습니다.`));
+      };
+
+      image.src = url;
+    });
+  };
+
+  const optimizeImage = async (file) => {
+    if (!file.type.startsWith("image/")) {
+      throw new Error(`${file.name}은 이미지 파일이 아닙니다.`);
+    }
+
+    // 움직이는 GIF는 변환하면 애니메이션이 사라지므로 원본 유지
+    if (file.type === "image/gif") {
+      if (file.size > 15 * 1024 * 1024) {
+        throw new Error(`${file.name} GIF 파일은 15MB를 초과합니다.`);
+      }
+      return file;
+    }
+
+    if (file.size > 30 * 1024 * 1024) {
+      throw new Error(`${file.name}은 30MB를 초과합니다.`);
+    }
+
+    const source = await loadImageSource(file);
+    const sourceWidth = source.width || source.naturalWidth;
+    const sourceHeight = source.height || source.naturalHeight;
+    const maxDimension = 1920;
+    const scale = Math.min(1, maxDimension / Math.max(sourceWidth, sourceHeight));
+    const width = Math.max(1, Math.round(sourceWidth * scale));
+    const height = Math.max(1, Math.round(sourceHeight * scale));
+
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+
+    const context = canvas.getContext("2d", { alpha: false });
+    context.imageSmoothingEnabled = true;
+    context.imageSmoothingQuality = "high";
+    context.fillStyle = "#ffffff";
+    context.fillRect(0, 0, width, height);
+    context.drawImage(source, 0, 0, width, height);
+
+    if (typeof source.close === "function") {
+      source.close();
+    }
+
+    const blob = await new Promise((resolve, reject) => {
+      canvas.toBlob(
+        (result) => result ? resolve(result) : reject(new Error(`${file.name} 사진 최적화에 실패했습니다.`)),
+        "image/webp",
+        0.82
+      );
+    });
+
+    const baseName = file.name.replace(/\.[^.]+$/, "") || "project-image";
+    return new File(
+      [blob],
+      `${safeFileName(baseName)}.webp`,
+      { type: "image/webp", lastModified: Date.now() }
+    );
+  };
+
   const ensureAdmin = async () => {
     const { data: { user }, error } = await window.nbSupabase.auth.getUser();
     if (error || !user || user.email !== ADMIN_EMAIL) {
@@ -126,14 +206,23 @@
     const uploadedPaths = [];
 
     for (let index = 0; index < files.length; index += 1) {
-      const file = files[index];
-      if (!file.type.startsWith("image/")) throw new Error(`${file.name}은 이미지 파일이 아닙니다.`);
-      if (file.size > 15 * 1024 * 1024) throw new Error(`${file.name}은 15MB를 초과합니다.`);
+      const originalFile = files[index];
+
+      status(`사진 최적화 및 업로드 중 (${index + 1}/${files.length})...`);
+      const file = await optimizeImage(originalFile);
+
+      if (file.size > 15 * 1024 * 1024) {
+        throw new Error(`${originalFile.name} 최적화 후에도 15MB를 초과합니다.`);
+      }
 
       const path = `${projectId}/${Date.now()}-${index}-${safeFileName(file.name)}`;
       const { error: uploadError } = await window.nbSupabase.storage
         .from(BUCKET)
-        .upload(path, file, { cacheControl: "3600", upsert: false });
+        .upload(path, file, {
+          cacheControl: "31536000",
+          upsert: false,
+          contentType: file.type
+        });
       if (uploadError) throw uploadError;
 
       uploadedPaths.push(path);
