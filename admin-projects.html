@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,nofollow">
+  <title>시공사례 관리 | 난방 마스터</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="admin-body">
+<header class="admin-header">
+  <a href="index.html"><img src="images/logo.png" alt="난방 마스터"></a>
+  <div class="admin-header-actions">
+    <a href="admin-inquiries.html">문의 관리</a>
+    <a class="is-active" href="admin-projects.html">시공사례 관리</a>
+    <button id="adminLogout" type="button">로그아웃</button>
+  </div>
+</header>
+
+<main class="admin-dashboard admin-project-dashboard">
+  <section class="admin-dashboard-head">
+    <div>
+      <span class="section-kicker">PROJECT CMS</span>
+      <h1>시공사례 관리</h1>
+      <p>코드를 수정하지 않고 카테고리 카드와 상세 게시글을 등록합니다.</p>
+    </div>
+    <button class="btn btn-primary" id="refreshProjects" type="button">목록 새로고침</button>
+  </section>
+
+  <section class="admin-project-form-panel">
+    <div class="admin-panel-heading">
+      <h2 id="projectFormTitle">새 시공사례 등록</h2>
+      <p>첫 번째 사진이 카테고리 카드의 대표사진으로 자동 사용됩니다.</p>
+    </div>
+
+    <form id="projectForm" class="admin-project-form">
+      <input type="hidden" id="projectId">
+
+      <div class="admin-form-grid">
+        <label>
+          <span>카테고리 *</span>
+          <select id="category" required>
+            <option value="excavation">홈파기시공</option>
+            <option value="heating">난방시공</option>
+            <option value="plumbing">수도설비시공</option>
+            <option value="leak">누수탐지</option>
+          </select>
+        </label>
+
+        <label>
+          <span>시공 지역</span>
+          <input id="region" type="text" value="서울 · 인천 · 경기" placeholder="예: 경기도 고양시">
+        </label>
+      </div>
+
+      <label>
+        <span>게시글 제목 *</span>
+        <input id="title" type="text" required placeholder="예: 아파트 난방배관 홈파기 시공">
+      </label>
+
+      <label>
+        <span>카드에 보일 짧은 설명 *</span>
+        <input id="summary" type="text" required placeholder="예: 노후 난방배관 교체를 위한 바닥 홈파기">
+      </label>
+
+      <label>
+        <span>작업 내용</span>
+        <input id="workDetails" type="text" placeholder="예: 기존 바닥 절삭 및 배관 동선 확보">
+      </label>
+
+      <label>
+        <span>상세 현장 설명</span>
+        <textarea id="description" rows="7" placeholder="현장 상태, 작업 과정, 마감 내용을 입력하세요."></textarea>
+      </label>
+
+      <fieldset id="existingImagesField" class="admin-existing-images-field" hidden>
+        <legend>기존 사진</legend>
+        <p class="admin-help">삭제할 사진만 체크하세요. 체크하지 않은 사진은 그대로 유지됩니다.</p>
+        <div id="existingProjectImages" class="admin-existing-images"></div>
+      </fieldset>
+
+      <label class="admin-file-field">
+        <span>새 사진 선택 *</span>
+        <input id="projectImages" type="file" accept="image/*" multiple>
+        <small>여러 장을 한 번에 선택할 수 있습니다. 새 글은 최소 1장, 사진 한 장당 최대 15MB입니다.</small>
+        <strong id="selectedFileList">선택된 새 사진이 없습니다.</strong>
+      </label>
+
+      <label class="admin-publish-toggle">
+        <input id="isPublished" type="checkbox" checked>
+        <span>등록 즉시 홈페이지에 공개</span>
+      </label>
+
+      <div id="projectFormStatus" class="admin-form-status" aria-live="polite"></div>
+
+      <div class="admin-form-actions">
+        <button class="btn btn-primary" id="projectSubmitButton" type="submit">게시글 등록</button>
+        <button class="btn btn-outline-blue" id="projectCancelEdit" type="button" hidden>수정 취소</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="admin-inquiry-panel admin-project-list-panel">
+    <div class="admin-panel-heading">
+      <h2>등록한 시공사례</h2>
+      <p>수정 또는 삭제할 게시글을 선택하세요.</p>
+    </div>
+    <div class="admin-table-wrap">
+      <table class="admin-inquiry-table">
+        <thead>
+          <tr><th>등록일</th><th>카테고리</th><th>제목</th><th>사진</th><th>상태</th><th>관리</th></tr>
+        </thead>
+        <tbody id="projectTableBody">
+          <tr><td colspan="6">불러오는 중...</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
+<script src="js/admin-projects.js"></script>
+</body>
+</html>

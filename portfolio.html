@@ -163,6 +163,7 @@
           </a>
         </article>
       </div>
+      <div class="portfolio-project-grid cms-portfolio-grid" data-cms-projects data-cms-category="all" data-cms-variant="portfolio"></div>
     </div>
   </section>
 
@@ -206,11 +207,11 @@
       <a href="contact.html">온라인 문의</a>
     </div>
 
-<div class="footer-v5-info">
-      <h3>상호 : 난방마스터</h3>
-      <p>대표자 : 이석준</p>
-      <p>사업자등록번호 : 394-01-04117</p>
-      <p>주소 : 경기도 고양시 일산동구 백석로 24 국제한신한진아파트3단지 상가동101호</p>
+    <div class="footer-v5-info">
+      <h3>사업자 정보</h3>
+      <p>대표자: 추후 입력</p>
+      <p>사업자등록번호: 추후 입력</p>
+      <p>주소: 추후 입력</p>
     </div>
   </div>
 
@@ -228,25 +229,29 @@
 
 
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabase-config.js"></script>
 <script src="js/main.js"></script>
 <script src="js/contact-actions.js"></script>
+<script src="js/cms-projects-public.js"></script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".portfolio-filter button");
-  const cards = document.querySelectorAll(".portfolio-project-card");
-
+  const applyFilter = (filter) => {
+    document.querySelectorAll(".portfolio-project-card").forEach((card) => {
+      card.hidden = !(filter === "all" || card.dataset.category === filter);
+    });
+  };
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      const filter = button.dataset.filter;
-
       buttons.forEach((item) => item.classList.remove("is-active"));
       button.classList.add("is-active");
-
-      cards.forEach((card) => {
-        const visible = filter === "all" || card.dataset.category === filter;
-        card.hidden = !visible;
-      });
+      applyFilter(button.dataset.filter);
     });
+  });
+  document.addEventListener("nbmaster:cms-loaded", () => {
+    const active = document.querySelector(".portfolio-filter button.is-active");
+    applyFilter(active?.dataset.filter || "all");
   });
 });
 </script>

@@ -215,15 +215,17 @@
   }
 
   .hero-image-layer{
-    background-position:68% center;
+    background-image:url("../images/hero-mobile.jpg");
+    background-position:center center;
+    background-size:cover;
   }
 
   .hero-soft-overlay{
     background:
       linear-gradient(180deg,
-        rgba(247,251,255,.98) 0%,
-        rgba(247,251,255,.93) 52%,
-        rgba(247,251,255,.60) 100%);
+        rgba(247,251,255,.96) 0%,
+        rgba(247,251,255,.82) 50%,
+        rgba(247,251,255,.28) 100%);
   }
 
   .hero-mockup-inner{
