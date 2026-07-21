@@ -939,3 +939,91 @@
     padding-top:82px;
   }
 }
+
+
+/* ======================================================
+   V9.6 MOBILE CONSISTENT HERO
+====================================================== */
+@media (max-width:768px){
+  .portfolio-page-hero.standard-page-hero,
+  .contact-page-hero.standard-page-hero,
+  .standard-page-hero-inner{
+    min-height:540px;
+  }
+
+  .portfolio-page-hero.standard-page-hero{
+    background-position:62% center !important;
+  }
+
+  .contact-page-hero.standard-page-hero{
+    background-position:68% center !important;
+  }
+
+  .standard-page-hero-overlay{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(7,24,44,.92) 0%,
+        rgba(7,24,44,.76) 45%,
+        rgba(7,24,44,.38) 76%,
+        rgba(7,24,44,.14) 100%
+      );
+  }
+
+  .standard-page-hero-inner{
+    align-items:flex-start;
+  }
+
+  .standard-page-hero-copy{
+    max-width:100%;
+    padding-top:100px;
+  }
+
+  .standard-page-hero-copy h1,
+  .portfolio-page-hero.standard-page-hero h1,
+  .contact-page-hero.standard-page-hero h1{
+    max-width:none !important;
+    font-size:42px !important;
+    line-height:1.25 !important;
+  }
+
+  .standard-page-hero-copy p,
+  .portfolio-page-hero.standard-page-hero p,
+  .contact-page-hero.standard-page-hero p{
+    max-width:88% !important;
+    font-size:16px !important;
+  }
+}
+
+@media (max-width:480px){
+  .portfolio-page-hero.standard-page-hero,
+  .contact-page-hero.standard-page-hero,
+  .standard-page-hero-inner{
+    min-height:500px;
+  }
+
+  .portfolio-page-hero.standard-page-hero{
+    background-position:65% center !important;
+  }
+
+  .contact-page-hero.standard-page-hero{
+    background-position:72% center !important;
+  }
+
+  .standard-page-hero-copy{
+    padding-top:82px;
+  }
+
+  .standard-page-hero-copy h1,
+  .portfolio-page-hero.standard-page-hero h1,
+  .contact-page-hero.standard-page-hero h1{
+    font-size:36px !important;
+  }
+
+  .standard-page-hero-copy p,
+  .portfolio-page-hero.standard-page-hero p,
+  .contact-page-hero.standard-page-hero p{
+    max-width:94% !important;
+    font-size:15px !important;
+  }
+}

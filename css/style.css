@@ -3171,3 +3171,80 @@ body.menu-open{overflow:hidden}
       rgba(7,24,44,.04) 100%
     ) !important;
 }
+
+
+/* ======================================================
+   V9.6 CONSISTENT HERO LAYOUT
+   회사소개·서비스 상세와 동일한 위치/크기 체계
+====================================================== */
+.portfolio-page-hero.standard-page-hero,
+.contact-page-hero.standard-page-hero{
+  position:relative;
+  min-height:610px;
+  padding:0 !important;
+  overflow:hidden;
+  color:#fff;
+  background-repeat:no-repeat !important;
+  background-size:cover !important;
+  background-position:center center !important;
+}
+
+.portfolio-page-hero.standard-page-hero{
+  background-image:url("../images/hero/portfolio-hero.webp") !important;
+}
+
+.contact-page-hero.standard-page-hero{
+  background-image:url("../images/hero/contact-hero.webp") !important;
+}
+
+.standard-page-hero-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7,24,44,.94) 0%,
+      rgba(7,24,44,.82) 42%,
+      rgba(7,24,44,.36) 72%,
+      rgba(7,24,44,.12) 100%
+    );
+}
+
+.standard-page-hero-inner{
+  position:relative;
+  z-index:2;
+  min-height:610px;
+  display:flex;
+  align-items:center;
+}
+
+.standard-page-hero-copy{
+  max-width:700px;
+}
+
+.standard-page-hero-copy h1,
+.portfolio-page-hero.standard-page-hero h1,
+.contact-page-hero.standard-page-hero h1{
+  margin:14px 0 22px !important;
+  color:#fff !important;
+  font-size:58px !important;
+  line-height:1.2 !important;
+  letter-spacing:-2px;
+}
+
+.standard-page-hero-copy p,
+.portfolio-page-hero.standard-page-hero p,
+.contact-page-hero.standard-page-hero p{
+  max-width:620px;
+  margin:0;
+  color:rgba(255,255,255,.78) !important;
+  font-size:18px !important;
+  line-height:1.75;
+}
+
+/* v9.5에서 추가했던 밝은 좌측 그라데이션 Hero를 사용하지 않음 */
+.portfolio-page-hero .sub-visual-overlay,
+.contact-page-hero .sub-visual-overlay{
+  display:none !important;
+}
