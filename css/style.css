@@ -3248,3 +3248,22 @@ body.menu-open{overflow:hidden}
 .contact-page-hero .sub-visual-overlay{
   display:none !important;
 }
+
+
+/* ======================================================
+   V9.7 ABOUT HERO + INDEX COPY
+====================================================== */
+.about-page-hero.about-custom-hero{
+  background-image:url("../images/hero/about-hero.webp") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+}
+
+/* 인덱스 지역 안내 문구: 웹/모바일 모두 기존보다 2pt 크게 */
+.hero-area-badge,
+.hero-location,
+.hero-area,
+.hero-badge,
+.hero-copy .location-badge{
+  font-size:calc(1em + 2pt) !important;
+}

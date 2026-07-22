@@ -1027,3 +1027,56 @@
     font-size:15px !important;
   }
 }
+
+
+/* ======================================================
+   V9.7 MOBILE INDEX / ABOUT HERO
+====================================================== */
+@media (max-width:768px){
+  /* 모바일 첫 화면에서 사진이 더 진하고 선명하게 보이도록 */
+  .hero::before,
+  .main-hero::before,
+  .home-hero::before{
+    background:
+      linear-gradient(
+        90deg,
+        rgba(247,249,252,.90) 0%,
+        rgba(247,249,252,.80) 32%,
+        rgba(247,249,252,.57) 52%,
+        rgba(247,249,252,.24) 74%,
+        rgba(247,249,252,.04) 100%
+      ) !important;
+  }
+
+  .hero-area-badge,
+  .hero-location,
+  .hero-area,
+  .hero-badge,
+  .hero-copy .location-badge{
+    font-size:calc(1em + 2pt) !important;
+  }
+
+  .about-page-hero.about-custom-hero{
+    background-position:62% center !important;
+  }
+}
+
+@media (max-width:480px){
+  .hero::before,
+  .main-hero::before,
+  .home-hero::before{
+    background:
+      linear-gradient(
+        90deg,
+        rgba(247,249,252,.86) 0%,
+        rgba(247,249,252,.72) 34%,
+        rgba(247,249,252,.44) 58%,
+        rgba(247,249,252,.13) 80%,
+        rgba(247,249,252,.01) 100%
+      ) !important;
+  }
+
+  .about-page-hero.about-custom-hero{
+    background-position:66% center !important;
+  }
+}
