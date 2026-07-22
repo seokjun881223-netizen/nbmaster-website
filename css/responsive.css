@@ -1092,3 +1092,39 @@
   .hero-mockup-copy .hero-region{font-size:15px !important;}
   .hero-mockup .hero-soft-overlay{background:linear-gradient(180deg,rgba(247,251,255,.89) 0%,rgba(247,251,255,.70) 50%,rgba(247,251,255,.17) 100%) !important;}
 }
+
+
+/* ======================================================
+   V9.9 MOBILE INDEX HERO — STRONGER IMAGE VISIBILITY
+====================================================== */
+@media (max-width:768px){
+  .hero-mockup .hero-image-layer{
+    filter:saturate(1.08) contrast(1.07) brightness(.94) !important;
+  }
+
+  .hero-mockup .hero-soft-overlay{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(247,251,255,.70) 0%,
+        rgba(247,251,255,.42) 48%,
+        rgba(247,251,255,.05) 100%
+      ) !important;
+  }
+}
+
+@media (max-width:420px){
+  .hero-mockup .hero-image-layer{
+    filter:saturate(1.10) contrast(1.08) brightness(.93) !important;
+  }
+
+  .hero-mockup .hero-soft-overlay{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(247,251,255,.66) 0%,
+        rgba(247,251,255,.36) 48%,
+        rgba(247,251,255,.03) 100%
+      ) !important;
+  }
+}
