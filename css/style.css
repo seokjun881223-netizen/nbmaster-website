@@ -3274,3 +3274,26 @@ body.menu-open{overflow:hidden}
 .hero-mockup-copy h1{margin-bottom:20px;}
 .hero-mockup-copy h2{margin-bottom:30px;}
 .hero-mockup-copy .hero-promise{margin-top:0;}
+
+
+/* ======================================================
+   V10.0 FINAL INDEX HERO IMAGE
+====================================================== */
+.hero-mockup .hero-image-layer{
+  background-image:url("../images/hero.jpg") !important;
+  background-position:center center !important;
+  background-size:cover !important;
+  filter:saturate(1.02) contrast(1.02);
+}
+
+.hero-mockup .hero-soft-overlay{
+  background:
+    linear-gradient(
+      90deg,
+      rgba(247,251,255,.98) 0%,
+      rgba(247,251,255,.93) 31%,
+      rgba(247,251,255,.63) 53%,
+      rgba(247,251,255,.20) 73%,
+      rgba(247,251,255,.03) 100%
+    ) !important;
+}

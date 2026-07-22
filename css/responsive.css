@@ -1128,3 +1128,52 @@
       ) !important;
   }
 }
+
+
+/* ======================================================
+   V10.0 FINAL MOBILE INDEX HERO
+====================================================== */
+@media (max-width:768px){
+  .hero-mockup .hero-image-layer{
+    background-image:url("../images/hero-mobile.jpg") !important;
+    background-position:center center !important;
+    background-size:cover !important;
+    filter:saturate(1.05) contrast(1.04) brightness(.97) !important;
+  }
+
+  /* 상단 글자는 선명하게, 하단으로 갈수록 사진이 잘 보이도록 */
+  .hero-mockup .hero-soft-overlay{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(247,251,255,.91) 0%,
+        rgba(247,251,255,.78) 31%,
+        rgba(247,251,255,.46) 58%,
+        rgba(247,251,255,.10) 82%,
+        rgba(247,251,255,.02) 100%
+      ) !important;
+  }
+
+  .hero-mockup-copy{
+    text-shadow:0 1px 0 rgba(255,255,255,.35);
+  }
+}
+
+@media (max-width:420px){
+  .hero-mockup .hero-image-layer{
+    background-position:center 44% !important;
+    filter:saturate(1.06) contrast(1.05) brightness(.96) !important;
+  }
+
+  .hero-mockup .hero-soft-overlay{
+    background:
+      linear-gradient(
+        180deg,
+        rgba(247,251,255,.90) 0%,
+        rgba(247,251,255,.75) 32%,
+        rgba(247,251,255,.40) 59%,
+        rgba(247,251,255,.07) 83%,
+        rgba(247,251,255,.01) 100%
+      ) !important;
+  }
+}
