@@ -3267,3 +3267,10 @@ body.menu-open{overflow:hidden}
 .hero-copy .location-badge{
   font-size:calc(1em + 2pt) !important;
 }
+
+
+/* V9.8 EXACT INDEX HERO COPY */
+.hero-mockup-copy .hero-region{display:inline-flex;width:max-content;margin:0 0 24px;font-size:18px !important;}
+.hero-mockup-copy h1{margin-bottom:20px;}
+.hero-mockup-copy h2{margin-bottom:30px;}
+.hero-mockup-copy .hero-promise{margin-top:0;}

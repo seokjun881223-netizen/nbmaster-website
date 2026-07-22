@@ -1080,3 +1080,15 @@
     background-position:66% center !important;
   }
 }
+
+
+/* V9.8 MOBILE INDEX HERO IMAGE */
+@media (max-width:768px){
+  .hero-mockup-copy .hero-region{margin-bottom:20px;font-size:15px !important;}
+  .hero-mockup-copy h2{margin-bottom:26px;}
+  .hero-mockup .hero-soft-overlay{background:linear-gradient(180deg,rgba(247,251,255,.91) 0%,rgba(247,251,255,.74) 50%,rgba(247,251,255,.20) 100%) !important;}
+}
+@media (max-width:420px){
+  .hero-mockup-copy .hero-region{font-size:15px !important;}
+  .hero-mockup .hero-soft-overlay{background:linear-gradient(180deg,rgba(247,251,255,.89) 0%,rgba(247,251,255,.70) 50%,rgba(247,251,255,.17) 100%) !important;}
+}
