@@ -1193,77 +1193,75 @@
 
 
 /* ======================================================
-   V10.9 MOBILE ONLY — KEYWORD TOP LAYER + HORIZONTAL LOCK
+   V10.10 MOBILE ONLY
    기준: v10.5
-   PC 및 기존 모바일 레이아웃 수치/배치는 변경하지 않습니다.
+   - PC 변경 없음
+   - 기존 모바일 Hero/버튼/카드 디자인 유지
+   - 카드 중앙 정렬 복원
+   - 키워드 최상위 노출
+   - 좌우 스크롤 차단
 ====================================================== */
 @media (max-width:768px){
 
-  /* 모바일 화면은 위아래 방향으로만 스크롤 */
-  html{
-    width:100%;
-    max-width:100%;
-    overflow-x:clip !important;
-    overscroll-behavior-x:none;
-    -webkit-text-size-adjust:100%;
-    text-size-adjust:100%;
-    touch-action:pan-y;
+  /* 문서는 위·아래 방향으로만 움직이게 고정 */
+  html,
+  body{
+    width:100% !important;
+    max-width:100% !important;
+    overflow-x:hidden !important;
+    overscroll-behavior-x:none !important;
+    touch-action:pan-y !important;
   }
 
   body{
-    width:100%;
-    max-width:100%;
-    min-width:0;
-    margin:0;
-    overflow-x:hidden !important;
-    overscroll-behavior-x:none;
-    touch-action:pan-y;
+    margin:0 !important;
+    position:relative;
   }
 
-  main{
-    width:100%;
-    max-width:100%;
-    overflow-x:clip !important;
-  }
-
-  /* 닫힌 모바일 메뉴가 화면 밖에서 가로 폭을 만들지 않도록 격리 */
-  .main-nav:not(.is-open){
-    right:-100% !important;
+  /* 닫힌 모바일 메뉴가 화면 밖 폭을 만들지 않게 처리 */
+  .main-nav{
+    right:0 !important;
     transform:none !important;
-    box-shadow:none !important;
+    visibility:hidden;
+    opacity:0;
+    pointer-events:none;
   }
 
   .main-nav.is-open{
-    right:0 !important;
-    transform:none !important;
+    visibility:visible;
+    opacity:1;
+    pointer-events:auto;
   }
 
-  /* Hero의 이미지/회색 레이어를 Hero 내부에서만 렌더링 */
-  .hero-mockup{
-    isolation:isolate;
-  }
-
-  .hero-mockup .hero-image-layer,
-  .hero-mockup .hero-soft-overlay{
-    z-index:0 !important;
-    pointer-events:none !important;
-  }
-
-  .hero-mockup-inner,
+  /* 01·02·03 카드: v10.5 디자인 그대로, 화면 중앙만 확실히 고정 */
   .trust-cards-wrap{
-    position:relative;
-    z-index:2;
+    left:50% !important;
+    right:auto !important;
+    width:calc(100% - 32px) !important;
+    max-width:1180px !important;
+    margin:0 !important;
+    transform:translateX(-50%) !important;
+    box-sizing:border-box !important;
   }
 
-  /* 키워드 영역 자체를 새 최상위 레이어로 생성 */
+  .trust-cards{
+    width:100% !important;
+    max-width:100% !important;
+  }
+
+  .trust-card{
+    width:100% !important;
+    max-width:100% !important;
+    box-sizing:border-box !important;
+  }
+
+  /* 키워드 영역을 회색 반투명 레이어보다 위에 배치 */
   .service-band{
     position:relative !important;
-    z-index:2147483000 !important;
+    z-index:1000 !important;
     isolation:isolate !important;
-    transform:translateZ(0);
   }
 
-  /* 회색 반투명 사각형 위를 완전한 흰색 바탕으로 덮음 */
   .service-band::before{
     content:"";
     position:absolute;
@@ -1283,5 +1281,23 @@
     z-index:3 !important;
     opacity:1 !important;
     visibility:visible !important;
+  }
+
+  /* Hero 배경 레이어는 카드/키워드보다 아래로 유지 */
+  .hero-image-layer,
+  .hero-soft-overlay{
+    z-index:0 !important;
+    pointer-events:none !important;
+  }
+
+  .hero-mockup-inner,
+  .trust-cards-wrap{
+    z-index:5 !important;
+  }
+}
+
+@media (max-width:420px){
+  .trust-cards-wrap{
+    width:calc(100% - 24px) !important;
   }
 }
