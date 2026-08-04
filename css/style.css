@@ -3297,3 +3297,49 @@ body.menu-open{overflow:hidden}
       rgba(247,251,255,.03) 100%
     ) !important;
 }
+
+
+/* ======================================================
+   V10.6 KEYWORD TOP LAYER + HORIZONTAL SCROLL LOCK
+   기존 v10 레이아웃은 변경하지 않습니다.
+====================================================== */
+html,
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden !important;
+}
+
+/* 키워드 영역 전체를 Hero의 회색/반투명 레이어 위에 표시 */
+.service-band{
+  position:relative !important;
+  z-index:100 !important;
+  isolation:isolate !important;
+}
+
+.service-band-inner{
+  position:relative !important;
+  z-index:101 !important;
+}
+
+.service-band span{
+  position:relative !important;
+  z-index:102 !important;
+  opacity:1 !important;
+}
+
+/* 회색 사각형 레이어가 키워드 영역보다 위로 올라오지 못하게 제한 */
+.hero-mockup .hero-image-layer,
+.hero-mockup .hero-soft-overlay,
+.hero-mockup::before,
+.hero-mockup::after{
+  z-index:0 !important;
+  pointer-events:none !important;
+}
+
+.hero-mockup-inner,
+.hero-mockup-copy,
+.trust-cards-wrap{
+  position:relative;
+  z-index:2;
+}

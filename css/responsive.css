@@ -1180,13 +1180,63 @@
 
 
 /* ======================================================
-   V10.5 MOBILE ZOOM LOCK ONLY
-   v10.0 레이아웃과 키워드 디자인은 그대로 유지합니다.
+   V10.6 MOBILE ONLY
 ====================================================== */
 @media (max-width:768px){
-  html{
+  html,
+  body{
+    width:100% !important;
+    max-width:100% !important;
+    overflow-x:hidden !important;
+    overscroll-behavior-x:none;
     -webkit-text-size-adjust:100%;
     text-size-adjust:100%;
     touch-action:pan-y;
+  }
+
+  body > *{
+    max-width:100vw;
+  }
+
+  main,
+  header,
+  footer,
+  section{
+    max-width:100vw !important;
+  }
+
+  /* 키워드는 모바일에서도 가장 위 레이어로 유지 */
+  .service-band{
+    position:relative !important;
+    z-index:1000 !important;
+    isolation:isolate !important;
+  }
+
+  .service-band-inner{
+    position:relative !important;
+    z-index:1001 !important;
+  }
+
+  .service-band span{
+    position:relative !important;
+    z-index:1002 !important;
+    opacity:1 !important;
+    color:#294864 !important;
+  }
+
+  /* 기존 회색 레이어가 서비스 키워드 영역을 덮지 못하게 함 */
+  .hero-mockup .hero-image-layer,
+  .hero-mockup .hero-soft-overlay,
+  .hero-mockup::before,
+  .hero-mockup::after{
+    z-index:0 !important;
+    pointer-events:none !important;
+  }
+
+  .hero-mockup-inner,
+  .hero-mockup-copy,
+  .trust-cards-wrap{
+    position:relative !important;
+    z-index:2 !important;
   }
 }
