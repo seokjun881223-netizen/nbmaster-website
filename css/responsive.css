@@ -1180,284 +1180,33 @@
 
 
 /* ======================================================
-   V10.1 MOBILE HERO HEIGHT / OVERFLOW FIX
-====================================================== */
-@media (max-width:768px){
-  .hero-mockup{
-    position:relative !important;
-    min-height:0 !important;
-    height:auto !important;
-    overflow:hidden !important;
-    isolation:isolate;
-    z-index:1;
-  }
-
-  .hero-mockup-inner{
-    position:relative !important;
-    min-height:720px !important;
-    height:auto !important;
-    overflow:hidden !important;
-  }
-
-  .hero-mockup .hero-image-layer,
-  .hero-mockup .hero-soft-overlay{
-    position:absolute !important;
-    inset:0 !important;
-    width:100% !important;
-    height:100% !important;
-    max-height:100% !important;
-    overflow:hidden !important;
-  }
-
-  .hero-mockup-copy,
-  .hero-value-cards,
-  .hero-service-tags{
-    position:relative !important;
-    z-index:3 !important;
-  }
-
-  .hero-value-cards,
-  .hero-service-tags{
-    transform:none !important;
-    translate:none !important;
-    margin-left:auto !important;
-    margin-right:auto !important;
-  }
-
-  .hero-mockup + section,
-  .hero-mockup + .section{
-    position:relative !important;
-    z-index:5 !important;
-    background:#fff !important;
-  }
-}
-
-@media (max-width:420px){
-  .hero-mockup-inner{
-    min-height:690px !important;
-  }
-}
-
-
-/* ======================================================
-   V10.2 MOBILE WIDTH / KEYWORD / ZOOM FIX
+   V10.3 MOBILE — NO LAYOUT CHANGE
 ====================================================== */
 @media (max-width:768px){
   html{
-    width:100%;
-    max-width:100%;
-    overflow-x:clip;
     -webkit-text-size-adjust:100%;
     text-size-adjust:100%;
     touch-action:pan-y;
   }
 
-  body{
-    width:100%;
-    max-width:100%;
-    min-width:0 !important;
-    margin:0;
-    overflow-x:clip !important;
-  }
-
-  *{
-    min-width:0;
-  }
-
-  .container{
-    width:calc(100% - 32px) !important;
-    max-width:none !important;
-    margin-left:auto !important;
-    margin-right:auto !important;
-  }
-
-  .header,
-  .top-bar,
-  main,
-  section,
-  footer{
-    width:100% !important;
-    max-width:100% !important;
-    left:0 !important;
-    right:auto !important;
-  }
-
-  /* Hero 전체를 정상적인 세로 흐름으로 변경 */
-  .hero-mockup{
-    min-height:0 !important;
-    height:auto !important;
-    padding:98px 0 24px !important;
-    overflow:hidden !important;
-  }
-
-  .hero-mockup-inner{
-    min-height:0 !important;
-    height:auto !important;
-    display:block !important;
+  /* 키워드가 반투명 Hero 레이어에 가려지는 현상만 수정 */
+  .service-band{
+    position:relative !important;
+    z-index:50 !important;
+    background:#fff !important;
     overflow:visible !important;
   }
 
-  .hero-mockup-copy{
-    width:100% !important;
-    max-width:100% !important;
-    padding:58px 0 34px !important;
-  }
-
-  .hero-mockup .hero-actions{
-    width:100%;
-    max-width:none;
-  }
-
-  .hero-mockup .hero-actions .btn{
-    width:100%;
-    max-width:100%;
-  }
-
-  .hero-inline-points{
-    width:100%;
-  }
-
-  /* 3개 핵심 카드가 Hero 안에서 정상적으로 모두 보이게 */
-  .trust-cards-wrap{
-    position:relative !important;
-    left:auto !important;
-    right:auto !important;
-    bottom:auto !important;
-    transform:none !important;
-    width:100% !important;
-    max-width:100% !important;
-    margin:0 !important;
-    padding:0 !important;
-    z-index:4 !important;
-  }
-
-  .trust-cards{
-    width:100% !important;
-    max-width:100% !important;
-    grid-template-columns:1fr !important;
-    gap:12px !important;
-  }
-
-  .trust-card{
-    width:100% !important;
-    max-width:100% !important;
-    min-height:0 !important;
-    padding:20px 18px !important;
-    border-radius:18px;
-  }
-
-  .trust-card > div{
-    min-width:0;
-  }
-
-  .trust-card strong,
-  .trust-card p{
-    white-space:normal !important;
-    overflow-wrap:anywhere;
-  }
-
-  /* 서비스 키워드: 흐려지거나 잘리지 않도록 별도 흰색 영역 */
-  .service-band{
-    position:relative !important;
-    z-index:10 !important;
-    width:100% !important;
-    max-width:100% !important;
-    padding:24px 0 36px !important;
-    background:#fff !important;
-    overflow:hidden !important;
-  }
-
   .service-band-inner{
-    width:calc(100% - 32px) !important;
-    max-width:none !important;
-    display:grid !important;
-    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
-    justify-content:stretch !important;
-    gap:10px !important;
-    margin:0 auto !important;
+    position:relative !important;
+    z-index:51 !important;
   }
 
   .service-band span{
-    width:100% !important;
-    min-width:0 !important;
-    padding:11px 8px !important;
-    text-align:center;
-    white-space:normal !important;
-    color:#294864 !important;
+    z-index:52 !important;
     opacity:1 !important;
-    background:#fff !important;
-    border-color:#d7e1eb !important;
-  }
-
-  .service-band span:last-child{
-    grid-column:1 / -1;
-    width:calc(50% - 5px) !important;
-    justify-self:center;
-  }
-
-  /* 이후 모든 섹션이 모바일 화면 폭을 정확히 따르도록 */
-  .intro,
-  .why-premium,
-  .services-showcase,
-  .portfolio-section,
-  .partnership,
-  .contact-section,
-  .section-dark{
-    width:100% !important;
-    max-width:100% !important;
-    margin-left:0 !important;
-    margin-right:0 !important;
-    overflow:hidden !important;
-  }
-
-  .intro-grid,
-  .partnership-grid,
-  .footer-inner{
-    width:100%;
-    max-width:100%;
-  }
-
-  .partnership-panel,
-  .feature-card,
-  .service-card,
-  .portfolio-wide-card,
-  .contact-card{
-    width:100% !important;
-    max-width:100% !important;
-  }
-
-  .floating-actions{
-    right:14px !important;
-  }
-}
-
-@media (max-width:420px){
-  .container{
-    width:calc(100% - 24px) !important;
-  }
-
-  .service-band-inner{
-    width:calc(100% - 24px) !important;
-  }
-
-  .hero-mockup-copy{
-    padding-top:48px !important;
-  }
-
-  .trust-card{
-    padding:18px 15px !important;
-  }
-
-  .trust-card-icon{
-    width:50px;
-    height:50px;
-  }
-
-  .trust-card strong{
-    font-size:18px;
-  }
-
-  .trust-card p{
-    font-size:13px;
+    color:#294864 !important;
+    background:rgba(255,255,255,.98) !important;
+    border-color:#d8e2ec !important;
   }
 }

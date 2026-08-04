@@ -3300,67 +3300,33 @@ body.menu-open{overflow:hidden}
 
 
 /* ======================================================
-   V10.1 MOBILE SECTION OVERLAP FIX
+   V10.3 — KEEP V10 LAYOUT / MOBILE ZOOM LOCK / KEYWORD FIX
 ====================================================== */
+
+/* v10 레이아웃은 그대로 유지하고 Hero 장식만 Hero 안에서 잘라냅니다. */
 .hero-mockup{
   position:relative;
-  isolation:isolate;
   overflow:hidden !important;
+  isolation:isolate;
 }
 
-.hero-mockup .hero-image-layer,
-.hero-mockup .hero-soft-overlay,
-.hero-mockup::before,
-.hero-mockup::after{
-  pointer-events:none;
+/* 서비스 키워드 영역이 Hero 오버레이 아래로 들어가지 않도록 위로 올립니다. */
+.service-band{
+  position:relative !important;
+  z-index:20 !important;
+  background:#fff !important;
+  isolation:isolate;
 }
 
-.hero-mockup + section,
-.hero-mockup + .section{
-  position:relative;
-  z-index:5;
-  background:#fff;
+.service-band-inner{
+  position:relative !important;
+  z-index:21 !important;
 }
 
-
-/* ======================================================
-   V10.2 GLOBAL MOBILE WIDTH SAFETY
-====================================================== */
-html,
-body{
-  width:100%;
-  max-width:100%;
-  overflow-x:clip;
-}
-
-body{
-  position:relative;
-}
-
-main,
-section,
-header,
-footer{
-  max-width:100%;
-}
-
-img,
-svg,
-video,
-canvas,
-iframe{
-  max-width:100%;
-}
-
-.hero-mockup,
-.service-band,
-.intro,
-.why-premium,
-.services-showcase,
-.portfolio-section,
-.partnership,
-.contact-section,
-.footer{
-  width:100%;
-  max-width:100%;
+.service-band span{
+  position:relative !important;
+  z-index:22 !important;
+  opacity:1 !important;
+  color:#294864 !important;
+  background:rgba(255,255,255,.96) !important;
 }
