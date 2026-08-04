@@ -1180,39 +1180,13 @@
 
 
 /* ======================================================
-   V10.4 MOBILE — NO LAYOUT RESTRUCTURE
+   V10.5 MOBILE ZOOM LOCK ONLY
+   v10.0 레이아웃과 키워드 디자인은 그대로 유지합니다.
 ====================================================== */
 @media (max-width:768px){
   html{
     -webkit-text-size-adjust:100%;
     text-size-adjust:100%;
     touch-action:pan-y;
-  }
-
-  /* v10.0의 Hero/카드 위치와 높이를 그대로 유지 */
-  .hero-mockup{
-    overflow:visible !important;
-  }
-
-  /* 키워드만 Hero 오버레이 위에 표시 */
-  .service-band{
-    position:relative !important;
-    z-index:50 !important;
-    background:#fff !important;
-    isolation:isolate;
-  }
-
-  .service-band-inner{
-    position:relative !important;
-    z-index:51 !important;
-  }
-
-  .service-band span{
-    position:relative !important;
-    z-index:52 !important;
-    opacity:1 !important;
-    color:#294864 !important;
-    background:#f9fbfd !important;
-    border-color:#dfe7ef !important;
   }
 }
