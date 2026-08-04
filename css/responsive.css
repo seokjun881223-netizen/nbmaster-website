@@ -1193,17 +1193,15 @@
 
 
 /* ======================================================
-   V10.10 MOBILE ONLY
+   V10.11 MOBILE ONLY
    기준: v10.5
    - PC 변경 없음
-   - 기존 모바일 Hero/버튼/카드 디자인 유지
-   - 카드 중앙 정렬 복원
-   - 키워드 최상위 노출
+   - 키워드 영역 배경 투명
+   - 01/02/03 카드 원래 위치에서 모두 노출
    - 좌우 스크롤 차단
 ====================================================== */
 @media (max-width:768px){
 
-  /* 문서는 위·아래 방향으로만 움직이게 고정 */
   html,
   body{
     width:100% !important;
@@ -1215,89 +1213,64 @@
 
   body{
     margin:0 !important;
-    position:relative;
   }
 
-  /* 닫힌 모바일 메뉴가 화면 밖 폭을 만들지 않게 처리 */
-  .main-nav{
-    right:0 !important;
-    transform:none !important;
-    visibility:hidden;
-    opacity:0;
-    pointer-events:none;
-  }
-
-  .main-nav.is-open{
-    visibility:visible;
-    opacity:1;
-    pointer-events:auto;
-  }
-
-  /* 01·02·03 카드: v10.5 디자인 그대로, 화면 중앙만 확실히 고정 */
-  .trust-cards-wrap{
+  /* 카드 래퍼 폭만 모바일 화면 안으로 제한합니다.
+     세로 위치, 카드 디자인, 카드 순서는 v10.5 그대로 유지합니다. */
+  .trust-cards-wrap.container{
     left:50% !important;
     right:auto !important;
-    width:calc(100% - 32px) !important;
-    max-width:1180px !important;
+    width:calc(100% - 28px) !important;
+    max-width:calc(100% - 28px) !important;
     margin:0 !important;
     transform:translateX(-50%) !important;
     box-sizing:border-box !important;
   }
 
-  .trust-cards{
-    width:100% !important;
-    max-width:100% !important;
-  }
-
+  .trust-cards,
   .trust-card{
     width:100% !important;
     max-width:100% !important;
     box-sizing:border-box !important;
   }
 
-  /* 키워드 영역을 회색 반투명 레이어보다 위에 배치 */
+  /* 핵심 수정:
+     서비스 키워드 섹션의 흰색 사각 배경을 투명하게 만들어
+     뒤에 있는 01/02/03 카드가 가려지지 않게 합니다. */
   .service-band{
     position:relative !important;
-    z-index:1000 !important;
+    z-index:10 !important;
+    background:transparent !important;
     isolation:isolate !important;
   }
 
-  .service-band::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    z-index:0;
-    background:#fff;
-    pointer-events:none;
+  .service-band::before,
+  .service-band::after{
+    display:none !important;
+    content:none !important;
   }
 
   .service-band-inner{
     position:relative !important;
-    z-index:2 !important;
+    z-index:20 !important;
   }
 
   .service-band span{
     position:relative !important;
-    z-index:3 !important;
+    z-index:21 !important;
     opacity:1 !important;
     visibility:visible !important;
   }
 
-  /* Hero 배경 레이어는 카드/키워드보다 아래로 유지 */
-  .hero-image-layer,
-  .hero-soft-overlay{
-    z-index:0 !important;
-    pointer-events:none !important;
-  }
-
-  .hero-mockup-inner,
-  .trust-cards-wrap{
-    z-index:5 !important;
+  /* 닫힌 모바일 메뉴가 가로 폭을 만들지 않도록 유지 */
+  .main-nav{
+    max-width:86vw !important;
   }
 }
 
 @media (max-width:420px){
-  .trust-cards-wrap{
-    width:calc(100% - 24px) !important;
+  .trust-cards-wrap.container{
+    width:calc(100% - 20px) !important;
+    max-width:calc(100% - 20px) !important;
   }
 }
