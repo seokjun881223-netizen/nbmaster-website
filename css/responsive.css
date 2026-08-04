@@ -1180,7 +1180,7 @@
 
 
 /* ======================================================
-   V10.3 MOBILE — NO LAYOUT CHANGE
+   V10.4 MOBILE — NO LAYOUT RESTRUCTURE
 ====================================================== */
 @media (max-width:768px){
   html{
@@ -1189,12 +1189,17 @@
     touch-action:pan-y;
   }
 
-  /* 키워드가 반투명 Hero 레이어에 가려지는 현상만 수정 */
+  /* v10.0의 Hero/카드 위치와 높이를 그대로 유지 */
+  .hero-mockup{
+    overflow:visible !important;
+  }
+
+  /* 키워드만 Hero 오버레이 위에 표시 */
   .service-band{
     position:relative !important;
     z-index:50 !important;
     background:#fff !important;
-    overflow:visible !important;
+    isolation:isolate;
   }
 
   .service-band-inner{
@@ -1203,10 +1208,11 @@
   }
 
   .service-band span{
+    position:relative !important;
     z-index:52 !important;
     opacity:1 !important;
     color:#294864 !important;
-    background:rgba(255,255,255,.98) !important;
-    border-color:#d8e2ec !important;
+    background:#f9fbfd !important;
+    border-color:#dfe7ef !important;
   }
 }

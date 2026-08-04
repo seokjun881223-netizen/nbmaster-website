@@ -3300,33 +3300,33 @@ body.menu-open{overflow:hidden}
 
 
 /* ======================================================
-   V10.3 — KEEP V10 LAYOUT / MOBILE ZOOM LOCK / KEYWORD FIX
+   V10.4 — V10 LAYOUT PRESERVED
+   Only: mobile zoom lock + keyword visibility
 ====================================================== */
 
-/* v10 레이아웃은 그대로 유지하고 Hero 장식만 Hero 안에서 잘라냅니다. */
+/* 반드시 v10.0의 카드 노출 구조를 유지합니다. */
 .hero-mockup{
-  position:relative;
-  overflow:hidden !important;
-  isolation:isolate;
+  overflow:visible !important;
 }
 
-/* 서비스 키워드 영역이 Hero 오버레이 아래로 들어가지 않도록 위로 올립니다. */
+/* 서비스 키워드 영역만 Hero 이미지/오버레이보다 위에 표시합니다. */
 .service-band{
   position:relative !important;
-  z-index:20 !important;
+  z-index:30 !important;
   background:#fff !important;
   isolation:isolate;
 }
 
 .service-band-inner{
   position:relative !important;
-  z-index:21 !important;
+  z-index:31 !important;
 }
 
 .service-band span{
   position:relative !important;
-  z-index:22 !important;
+  z-index:32 !important;
   opacity:1 !important;
   color:#294864 !important;
-  background:rgba(255,255,255,.96) !important;
+  background:#f9fbfd !important;
+  border-color:#dfe7ef !important;
 }
