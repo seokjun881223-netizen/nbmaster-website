@@ -3297,3 +3297,70 @@ body.menu-open{overflow:hidden}
       rgba(247,251,255,.03) 100%
     ) !important;
 }
+
+
+/* ======================================================
+   V10.1 MOBILE SECTION OVERLAP FIX
+====================================================== */
+.hero-mockup{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden !important;
+}
+
+.hero-mockup .hero-image-layer,
+.hero-mockup .hero-soft-overlay,
+.hero-mockup::before,
+.hero-mockup::after{
+  pointer-events:none;
+}
+
+.hero-mockup + section,
+.hero-mockup + .section{
+  position:relative;
+  z-index:5;
+  background:#fff;
+}
+
+
+/* ======================================================
+   V10.2 GLOBAL MOBILE WIDTH SAFETY
+====================================================== */
+html,
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:clip;
+}
+
+body{
+  position:relative;
+}
+
+main,
+section,
+header,
+footer{
+  max-width:100%;
+}
+
+img,
+svg,
+video,
+canvas,
+iframe{
+  max-width:100%;
+}
+
+.hero-mockup,
+.service-band,
+.intro,
+.why-premium,
+.services-showcase,
+.portfolio-section,
+.partnership,
+.contact-section,
+.footer{
+  width:100%;
+  max-width:100%;
+}
