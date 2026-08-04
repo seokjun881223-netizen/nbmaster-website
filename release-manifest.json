@@ -1,0 +1,22 @@
+{
+  "release": "v11",
+  "cache_version": "1100",
+  "file_count": 71,
+  "total_size_bytes": 7174581,
+  "removed_files": [
+    "v9.7_변경사항.txt",
+    "v9.8_변경사항.txt",
+    "v9.9_변경사항.txt",
+    "v10.11_변경사항.txt",
+    "v10.5_변경사항.txt",
+    "v10.0_인덱스이미지_변경사항.txt",
+    "README.txt",
+    "모바일_접속_필독.txt",
+    "모바일테스트_서버실행.bat",
+    "문의게시판_최종마무리.txt",
+    "시공사례_사진카드_추가방법.txt",
+    "운영전_필수입력_및_배포가이드.txt",
+    "SUPABASE_최종보안설정_실행.sql"
+  ],
+  "missing_internal_refs": []
+}
