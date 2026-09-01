@@ -6,6 +6,76 @@
     leak: "누수탐지"
   };
 
+
+  const INDEX_FALLBACKS = [
+    {
+      category: "excavation",
+      title: "실내 바닥 홈파기 시공",
+      summary: "배관 매립을 위한 바닥 홈파기 작업",
+      image_url: "images/portfolio/excavation-01.jpg",
+      href: "post-excavation-01.html"
+    },
+    {
+      category: "heating",
+      title: "바닥 난방배관 시공",
+      summary: "단열재 위 난방배관 배치 및 고정",
+      image_url: "images/portfolio/heating-01.jpg",
+      href: "post-heating-01.html"
+    },
+    {
+      category: "plumbing",
+      title: "바닥 수도배관 홈파기",
+      summary: "벽체와 바닥을 연결하는 배관 통로 시공",
+      image_url: "images/portfolio/plumbing-02.jpg",
+      href: "post-plumbing-02.html"
+    },
+    {
+      category: "leak",
+      title: "분배기 교체 후 누수 점검",
+      summary: "신규 분배기 설치 후 연결부 확인",
+      image_url: "images/portfolio/leak-02.jpg",
+      href: "post-leak-02.html"
+    }
+  ];
+
+  const indexFallbackCard = (project) => {
+    const label = CATEGORY_LABELS[project.category] || "시공사례";
+    return `
+      <a class="portfolio-wide-card reveal is-visible index-fallback-card"
+         href="${escapeHtml(project.href)}">
+        <div class="portfolio-wide-image">
+          <img src="${escapeHtml(project.image_url)}"
+               alt="${escapeHtml(project.title)}"
+               loading="lazy">
+        </div>
+        <div class="portfolio-wide-info">
+          <span>${escapeHtml(label)}</span>
+          <h3>${escapeHtml(project.title)}</h3>
+          <p>${escapeHtml(project.summary)}</p>
+        </div>
+      </a>`;
+  };
+
+  const renderIndexWithFallback = (projects, limit = 4) => {
+    const cmsProjects = (projects || []).slice(0, limit);
+    const usedKeys = new Set(
+      cmsProjects.map((project) =>
+        `${project.category}::${String(project.title || "").trim().toLowerCase()}`
+      )
+    );
+
+    const fallbacks = INDEX_FALLBACKS.filter((project) => {
+      const key = `${project.category}::${project.title.trim().toLowerCase()}`;
+      return !usedKeys.has(key);
+    }).slice(0, Math.max(0, limit - cmsProjects.length));
+
+    return (
+      cmsProjects.map(indexCard).join("") +
+      fallbacks.map(indexFallbackCard).join("")
+    );
+  };
+
+
   const escapeHtml = (value = "") =>
     String(value).replace(/[&<>"']/g, (char) => ({
       "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
@@ -115,7 +185,11 @@
           variant === "index" ? indexCard :
           serviceCard;
 
-        container.innerHTML = projects.map(renderer).join("");
+        if (variant === "index" && container.dataset.cmsIndexFallback === "true") {
+          container.innerHTML = renderIndexWithFallback(projects, limit || 4);
+        } else {
+          container.innerHTML = projects.map(renderer).join("");
+        }
 
         if (!projects.length && container.dataset.showEmpty === "true") {
           container.innerHTML = '<p class="cms-empty">등록된 새 시공사례가 없습니다.</p>';
@@ -127,7 +201,14 @@
       console.warn("시공사례 CMS 불러오기 실패:", error.message);
       // 기존 정적 게시글은 그대로 보이게 두고 CMS 영역만 비웁니다.
       containers.forEach((container) => {
-        container.innerHTML = "";
+        if (
+          container.dataset.cmsVariant === "index" &&
+          container.dataset.cmsIndexFallback === "true"
+        ) {
+          container.innerHTML = INDEX_FALLBACKS.slice(0, 4).map(indexFallbackCard).join("");
+        } else {
+          container.innerHTML = "";
+        }
       });
     }
   };
