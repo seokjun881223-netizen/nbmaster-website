@@ -1,0 +1,1 @@
+html,body{-webkit-user-select:none !important;user-select:none !important;-webkit-touch-callout:none !important;}img,picture,svg,canvas,video{-webkit-user-drag:none !important;user-drag:none !important;}input,textarea,select,option,[contenteditable="true"]{-webkit-user-select:text !important;user-select:text !important;-webkit-touch-callout:default !important;}
