@@ -1,1 +1,111 @@
-@charset "UTF-8";:root{color-scheme: only light;}html,body{color-scheme: only light;background-color:#ffffff;}body{color:#26384c;}input,textarea,select,button{color-scheme: only light;}input,textarea,select{background-color:#ffffff !important;color:#26384c !important;border-color:#cfd9e5 !important;caret-color:#0d2748;}input::placeholder,textarea::placeholder{color:#8492a2 !important;opacity:1 !important;}select option{background:#ffffff;color:#26384c;}input[type="checkbox"],input[type="radio"]{accent-color:#1976ff;}input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,textarea:-webkit-autofill,select:-webkit-autofill{-webkit-text-fill-color:#26384c !important;-webkit-box-shadow:0 0 0 1000px #ffffff inset !important;box-shadow:0 0 0 1000px #ffffff inset !important;transition:background-color 9999s ease-out 0s;}.contact-channel-card,.contact-checklist>div,.contact-form,.faq-item,.why-premium-card,.mini-service-card,.service-card,.feature-card,.portfolio-wide-card,.portfolio-card,.category-project-card,.project-card,.admin-summary-grid article,.admin-inquiry-panel,.inquiry-dialog,.inquiry-dialog-card{background-color:#ffffff;color:#26384c;}.section-soft{background-color:#f5f8fc;}.header{background-color:rgba(255,255,255,.97);}.footer,.section-dark,.partnership{color-scheme: only light;}img,svg,video,canvas{forced-color-adjust:auto;}
+@charset "UTF-8";
+
+/* =========================================================
+   NB MASTER v12.1 — THEME CONSISTENCY
+   목적:
+   - OS/브라우저가 다크 모드여도 사이트는 동일한 라이트 디자인 유지
+   - 레이아웃, 모바일 위치/크기/스크롤 규칙은 변경하지 않음
+========================================================= */
+
+:root{
+  color-scheme: only light;
+}
+
+html,
+body{
+  color-scheme: only light;
+  background-color:#ffffff;
+}
+
+body{
+  color:#26384c;
+}
+
+input,
+textarea,
+select,
+button{
+  color-scheme: only light;
+}
+
+input,
+textarea,
+select{
+  background-color:#ffffff !important;
+  color:#26384c !important;
+  border-color:#cfd9e5 !important;
+  caret-color:#0d2748;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:#8492a2 !important;
+  opacity:1 !important;
+}
+
+select option{
+  background:#ffffff;
+  color:#26384c;
+}
+
+input[type="checkbox"],
+input[type="radio"]{
+  accent-color:#1976ff;
+}
+
+/* 브라우저 autofill이 다크/노란 계열로 바뀌는 현상 완화 */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill{
+  -webkit-text-fill-color:#26384c !important;
+  -webkit-box-shadow:0 0 0 1000px #ffffff inset !important;
+  box-shadow:0 0 0 1000px #ffffff inset !important;
+  transition:background-color 9999s ease-out 0s;
+}
+
+/* 기본 카드/패널의 색을 명시해 테마 자동 변환 영향 최소화 */
+.contact-channel-card,
+.contact-checklist>div,
+.contact-form,
+.faq-item,
+.why-premium-card,
+.mini-service-card,
+.service-card,
+.feature-card,
+.portfolio-wide-card,
+.portfolio-card,
+.category-project-card,
+.project-card,
+.admin-summary-grid article,
+.admin-inquiry-panel,
+.inquiry-dialog,
+.inquiry-dialog-card{
+  background-color:#ffffff;
+  color:#26384c;
+}
+
+/* 라이트 디자인의 부드러운 섹션 배경을 명시 */
+.section-soft{
+  background-color:#f5f8fc;
+}
+
+/* 헤더/푸터 등 핵심 컬러도 명시 */
+.header{
+  background-color:rgba(255,255,255,.97);
+}
+
+.footer,
+.section-dark,
+.partnership{
+  color-scheme: only light;
+}
+
+/* 브라우저가 아이콘/이미지에 강제 반전 효과를 주지 않도록 */
+img,
+svg,
+video,
+canvas{
+  forced-color-adjust:auto;
+}

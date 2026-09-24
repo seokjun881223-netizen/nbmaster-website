@@ -1,4 +1,63 @@
-@charset "UTF-8";@media (min-width:769px){.index-featured-shared.portfolio-strip{padding:38px 0 44px;background: linear-gradient(90deg,#f7fbff 0%,#edf5ff 48%,#f8fbff 100%);}.index-featured-shared .portfolio-strip-grid{align-items:center;}.index-featured-shared .portfolio-wide-image{height:158px;}.index-featured-shared .portfolio-wide-info{padding:15px 15px 14px;}.index-featured-shared .portfolio-wide-info span{margin-top:0;}.index-featured-shared .portfolio-wide-info h3{font-size:16px;}.index-featured-shared .portfolio-wide-info p{font-size:13px;line-height:1.55;}.service-band{padding-bottom:18px;}.index-featured-shared + .intro{padding-top:88px;}}
+@charset "UTF-8";
+
+/* =========================================================
+   NB MASTER v12.2 — INDEX FEATURED PORTFOLIO
+   - 데스크톱: 서비스 키워드 바로 아래 / ABOUT US 바로 위
+   - 모바일: 기존 PORTFOLIO 위치 유지
+========================================================= */
+
+.index-featured-shared{
+  display:block;
+}
+
+.index-featured-shared{
+  display:none;
+}
+
+@media (min-width:769px){
+  .index-featured-shared.portfolio-strip{
+    padding:38px 0 44px;
+    background:
+      linear-gradient(90deg,#f7fbff 0%,#edf5ff 48%,#f8fbff 100%);
+  }
+
+  .index-featured-shared .portfolio-strip-grid{
+    align-items:center;
+  }
+
+  .index-featured-shared .portfolio-wide-image{
+    height:158px;
+  }
+
+  .index-featured-shared .portfolio-wide-info{
+    padding:15px 15px 14px;
+  }
+
+  .index-featured-shared .portfolio-wide-info span{
+    margin-top:0;
+  }
+
+  .index-featured-shared .portfolio-wide-info h3{
+    font-size:16px;
+  }
+
+  .index-featured-shared .portfolio-wide-info p{
+    font-size:13px;
+    line-height:1.55;
+  }
+
+  /* 키워드 다음에 바로 붙도록 불필요한 빈 여백을 줄임 */
+  .service-band{
+    padding-bottom:18px;
+  }
+
+  .index-featured-shared + .intro{
+    padding-top:88px;
+  }
+}
+
+
+
 
 /* =========================================================
    V12.3 — FEATURED PORTFOLIO SAME POSITION ON ALL DEVICES
