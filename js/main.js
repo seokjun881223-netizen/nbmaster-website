@@ -3,11 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.querySelector(".menu-toggle");
   const mainNav = document.querySelector(".main-nav");
   const menuDim = document.querySelector(".menu-dim");
-
   const updateHeader = () => {
     if (header) header.classList.toggle("is-scrolled", window.scrollY > 20);
   };
-
   const closeMenu = () => {
     if (!menuToggle || !mainNav || !menuDim) return;
     menuToggle.classList.remove("is-active");
@@ -16,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
     menuToggle.setAttribute("aria-expanded", "false");
     document.body.classList.remove("menu-open");
   };
-
   const openMenu = () => {
     if (!menuToggle || !mainNav || !menuDim) return;
     menuToggle.classList.add("is-active");
@@ -25,10 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     menuToggle.setAttribute("aria-expanded", "true");
     document.body.classList.add("menu-open");
   };
-
   updateHeader();
   window.addEventListener("scroll", updateHeader, { passive: true });
-
   if (menuToggle && mainNav && menuDim) {
     menuToggle.addEventListener("click", () => {
       mainNav.classList.contains("is-open") ? closeMenu() : openMenu();
@@ -42,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
       if (window.innerWidth > 768) closeMenu();
     });
   }
-
   const revealItems = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries, obs) => {

@@ -1,0 +1,9 @@
+{
+  "release": "v12-desktop-crisp",
+  "base": "v11-release",
+  "desktop_only_breakpoint": "min-width: 769px",
+  "mobile_existing_css_modified": false,
+  "new_file": "css/desktop-enhancements.css",
+  "html_files_linked": 21,
+  "missing_internal_refs": 0
+}

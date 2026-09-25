@@ -7,11 +7,9 @@
     plumbing: "수도설비시공",
     leak: "누수탐지"
   };
-
   let editingId = null;
   let currentProjects = [];
   let existingImages = [];
-
   const $ = (selector) => document.querySelector(selector);
   const status = (message, type = "") => {
     const box = $("#projectFormStatus");
@@ -20,48 +18,37 @@
   };
   const safeFileName = (name) =>
     name.normalize("NFKD").replace(/[^\w.-]+/g, "-").replace(/-+/g, "-");
-
-
   const loadImageSource = async (file) => {
     if ("createImageBitmap" in window) {
       return createImageBitmap(file, { imageOrientation: "from-image" });
     }
-
     return new Promise((resolve, reject) => {
       const image = new Image();
       const url = URL.createObjectURL(file);
-
       image.onload = () => {
         URL.revokeObjectURL(url);
         resolve(image);
       };
-
       image.onerror = () => {
         URL.revokeObjectURL(url);
         reject(new Error(`${file.name} 이미지를 읽지 못했습니다.`));
       };
-
       image.src = url;
     });
   };
-
   const optimizeImage = async (file) => {
     if (!file.type.startsWith("image/")) {
       throw new Error(`${file.name}은 이미지 파일이 아닙니다.`);
     }
-
-    // 움직이는 GIF는 변환하면 애니메이션이 사라지므로 원본 유지
     if (file.type === "image/gif") {
       if (file.size > 15 * 1024 * 1024) {
         throw new Error(`${file.name} GIF 파일은 15MB를 초과합니다.`);
       }
       return file;
     }
-
     if (file.size > 30 * 1024 * 1024) {
       throw new Error(`${file.name}은 30MB를 초과합니다.`);
     }
-
     const source = await loadImageSource(file);
     const sourceWidth = source.width || source.naturalWidth;
     const sourceHeight = source.height || source.naturalHeight;
@@ -69,22 +56,18 @@
     const scale = Math.min(1, maxDimension / Math.max(sourceWidth, sourceHeight));
     const width = Math.max(1, Math.round(sourceWidth * scale));
     const height = Math.max(1, Math.round(sourceHeight * scale));
-
     const canvas = document.createElement("canvas");
     canvas.width = width;
     canvas.height = height;
-
     const context = canvas.getContext("2d", { alpha: false });
     context.imageSmoothingEnabled = true;
     context.imageSmoothingQuality = "high";
     context.fillStyle = "#ffffff";
     context.fillRect(0, 0, width, height);
     context.drawImage(source, 0, 0, width, height);
-
     if (typeof source.close === "function") {
       source.close();
     }
-
     const blob = await new Promise((resolve, reject) => {
       canvas.toBlob(
         (result) => result ? resolve(result) : reject(new Error(`${file.name} 사진 최적화에 실패했습니다.`)),
@@ -92,7 +75,6 @@
         0.82
       );
     });
-
     const baseName = file.name.replace(/\.[^.]+$/, "") || "project-image";
     return new File(
       [blob],
@@ -100,7 +82,6 @@
       { type: "image/webp", lastModified: Date.now() }
     );
   };
-
   const ensureAdmin = async () => {
     const { data: { user }, error } = await window.nbSupabase.auth.getUser();
     if (error || !user || user.email !== ADMIN_EMAIL) {
@@ -109,7 +90,6 @@
     }
     return user;
   };
-
   const fetchProjects = async () => {
     const { data, error } = await window.nbSupabase
       .from("projects")
@@ -119,14 +99,12 @@
     currentProjects = data || [];
     renderList();
   };
-
   const renderList = () => {
     const body = $("#projectTableBody");
     if (!currentProjects.length) {
       body.innerHTML = '<tr><td colspan="6">등록된 관리자 게시글이 없습니다.</td></tr>';
       return;
     }
-
     body.innerHTML = currentProjects.map((project) => `
       <tr>
         <td>${new Date(project.created_at).toLocaleDateString("ko-KR")}</td>
@@ -142,14 +120,12 @@
         </td>
       </tr>`).join("");
   };
-
   const renderExistingImages = () => {
     const wrap = $("#existingProjectImages");
     if (!existingImages.length) {
       wrap.innerHTML = '<p class="admin-help">기존 사진이 없습니다.</p>';
       return;
     }
-
     wrap.innerHTML = existingImages
       .sort((a, b) => Number(a.sort_order) - Number(b.sort_order))
       .map((image, index) => `
@@ -160,7 +136,6 @@
           <em>삭제 선택</em>
         </label>`).join("");
   };
-
   const resetForm = () => {
     editingId = null;
     existingImages = [];
@@ -175,11 +150,9 @@
     status("");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
   const startEdit = (id) => {
     const project = currentProjects.find((item) => item.id === id);
     if (!project) return;
-
     editingId = id;
     existingImages = [...(project.project_images || [])];
     $("#projectId").value = id;
@@ -200,21 +173,16 @@
     status("수정할 내용을 확인한 뒤 저장하세요.");
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
   const uploadFiles = async (projectId, files, startOrder) => {
     const rows = [];
     const uploadedPaths = [];
-
     for (let index = 0; index < files.length; index += 1) {
       const originalFile = files[index];
-
       status(`사진 최적화 및 업로드 중 (${index + 1}/${files.length})...`);
       const file = await optimizeImage(originalFile);
-
       if (file.size > 15 * 1024 * 1024) {
         throw new Error(`${originalFile.name} 최적화 후에도 15MB를 초과합니다.`);
       }
-
       const path = `${projectId}/${Date.now()}-${index}-${safeFileName(file.name)}`;
       const { error: uploadError } = await window.nbSupabase.storage
         .from(BUCKET)
@@ -224,7 +192,6 @@
           contentType: file.type
         });
       if (uploadError) throw uploadError;
-
       uploadedPaths.push(path);
       const { data: publicData } = window.nbSupabase.storage.from(BUCKET).getPublicUrl(path);
       rows.push({
@@ -234,7 +201,6 @@
         sort_order: startOrder + index
       });
     }
-
     if (rows.length) {
       const { error } = await window.nbSupabase.from("project_images").insert(rows);
       if (error) {
@@ -243,7 +209,6 @@
       }
     }
   };
-
   const normalizeImageOrder = async (projectId) => {
     const { data, error } = await window.nbSupabase
       .from("project_images")
@@ -251,7 +216,6 @@
       .eq("project_id", projectId)
       .order("sort_order", { ascending: true });
     if (error) throw error;
-
     for (let index = 0; index < (data || []).length; index += 1) {
       if (data[index].sort_order !== index) {
         const { error: updateError } = await window.nbSupabase
@@ -262,12 +226,10 @@
       }
     }
   };
-
   const deleteSelectedImages = async () => {
     const selectedIds = [...document.querySelectorAll("[data-delete-image]:checked")]
       .map((input) => Number(input.value));
     if (!selectedIds.length) return;
-
     const selected = existingImages.filter((image) => selectedIds.includes(Number(image.id)));
     const paths = selected.map((image) => image.storage_path).filter((path) => path && !path.startsWith("legacy:"));
     if (paths.length) {
@@ -277,13 +239,11 @@
     const { error } = await window.nbSupabase.from("project_images").delete().in("id", selectedIds);
     if (error) throw error;
   };
-
   const saveProject = async (event) => {
     event.preventDefault();
     const submit = $("#projectSubmitButton");
     submit.disabled = true;
     status(editingId ? "수정 내용을 저장하고 있습니다..." : "게시글과 사진을 등록하고 있습니다...");
-
     try {
       const files = [...$("#projectImages").files];
       const payload = {
@@ -296,16 +256,12 @@
         is_published: $("#isPublished").checked,
         updated_at: new Date().toISOString()
       };
-
       if (!payload.title || !payload.summary) throw new Error("제목과 카드 설명은 필수입니다.");
-
       let projectId = editingId;
-
       if (editingId) {
         await deleteSelectedImages();
         const { error } = await window.nbSupabase.from("projects").update(payload).eq("id", editingId);
         if (error) throw error;
-
         const { count, error: countError } = await window.nbSupabase
           .from("project_images")
           .select("*", { count: "exact", head: true })
@@ -315,7 +271,6 @@
         await normalizeImageOrder(editingId);
       } else {
         if (!files.length) throw new Error("게시글 사진을 한 장 이상 선택하세요.");
-
         const { data, error } = await window.nbSupabase
           .from("projects")
           .insert(payload)
@@ -323,7 +278,6 @@
           .single();
         if (error) throw error;
         projectId = data.id;
-
         try {
           await uploadFiles(projectId, files, 0);
         } catch (uploadError) {
@@ -331,7 +285,6 @@
           throw uploadError;
         }
       }
-
       status(editingId ? "수정이 완료되었습니다." : "게시글이 등록되었습니다.", "success");
       await fetchProjects();
       setTimeout(resetForm, 800);
@@ -342,12 +295,10 @@
       submit.disabled = false;
     }
   };
-
   const removeProject = async (id) => {
     const project = currentProjects.find((item) => item.id === id);
     if (!project) return;
     if (!confirm(`"${project.title}" 게시글을 삭제할까요?\n사진도 함께 삭제됩니다.`)) return;
-
     try {
       const paths = (project.project_images || []).map((image) => image.storage_path).filter((path) => path && !path.startsWith("legacy:"));
       if (paths.length) {
@@ -362,14 +313,12 @@
       alert(`삭제하지 못했습니다: ${error.message}`);
     }
   };
-
   const init = async () => {
     if (!window.nbSupabase) {
       alert("Supabase 설정 파일을 불러오지 못했습니다.");
       return;
     }
     if (!await ensureAdmin()) return;
-
     $("#projectForm").addEventListener("submit", saveProject);
     $("#projectCancelEdit").addEventListener("click", resetForm);
     $("#refreshProjects").addEventListener("click", fetchProjects);
@@ -389,13 +338,11 @@
       if (edit) startEdit(edit.dataset.edit);
       if (remove) removeProject(remove.dataset.delete);
     });
-
     try {
       await fetchProjects();
     } catch (error) {
       status(`목록을 불러오지 못했습니다: ${error.message}`, "error");
     }
   };
-
   document.addEventListener("DOMContentLoaded", init);
 })();

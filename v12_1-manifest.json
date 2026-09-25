@@ -1,0 +1,11 @@
+{
+  "release": "v12.1",
+  "base": "v12-desktop-crisp",
+  "theme_consistency": true,
+  "desktop_contact_clarity": true,
+  "existing_style_css_changed": false,
+  "existing_responsive_css_changed": false,
+  "existing_animation_css_changed": false,
+  "html_count": 21,
+  "missing_internal_refs": 0
+}

@@ -1,0 +1,12 @@
+{
+  "release": "v12.2",
+  "base": "v12.1",
+  "featured_portfolio_count": 4,
+  "featured_sort": "created_at desc",
+  "newest_position": "left",
+  "fallback_cards": 4,
+  "desktop_position": "after service-band, before about-us",
+  "mobile_position": "existing portfolio location",
+  "existing_core_css_changed": false,
+  "missing_internal_refs": 0
+}
